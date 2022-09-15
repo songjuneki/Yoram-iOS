@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var currentTab: Int = 0
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack(alignment: .center, spacing: 0) {
+            ZStack(alignment:.bottom) {
+                TabView(selection: self.$currentTab) {
+                    
+                }.tabViewStyle(.page(indexDisplayMode: .never))
+                    .edgesIgnoringSafeArea(.all)
+                    .padding()
+                TabBarView(currentTab: self.$currentTab).padding()
+            }
+        }.edgesIgnoringSafeArea(.bottom)
     }
 }
 
