@@ -32,7 +32,7 @@ struct IntroMain: View {
                     } label: {
                         RoundedRectangle(cornerRadius: 5)
                             .foregroundColor(Color("PossibleColor"))
-                            .frame(width: p.size.width, height: 52, alignment: .center)
+                            .frame(width: p.size.width, height: p.size.height/12, alignment: .center)
                             .overlay(
                                 Text("로그인하기")
                                     .foregroundColor(Color.white)
@@ -47,7 +47,7 @@ struct IntroMain: View {
                             .stroke(lineWidth: 1)
                             .background(Color.white)
                             .foregroundColor(Color("ButtonBorderColor"))
-                            .frame(width: p.size.width, height: 52, alignment: .center)
+                            .frame(width: p.size.width, height: p.size.height/12, alignment: .center)
                             .overlay(
                                 Text("회원가입")
                                     .foregroundColor(Color("TextTitleColor"))
@@ -59,7 +59,7 @@ struct IntroMain: View {
                             .stroke(lineWidth: 1)
                             .background(Color.white)
                             .foregroundColor(Color("ButtonBorderColor"))
-                            .frame(width: p.size.width, height: 52, alignment: .center)
+                            .frame(width: p.size.width, height: p.size.height/12 , alignment: .center)
                             .overlay(
                                 Text("비회원 입장하기")
                                     .foregroundColor(Color("TextTitleColor"))

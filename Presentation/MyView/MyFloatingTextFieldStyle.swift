@@ -11,7 +11,7 @@ import FloatingLabelTextFieldSwiftUI
 struct MyFloatTextFieldStyle: FloatingLabelTextFieldStyle {
     func body(content: FloatingLabelTextField) -> FloatingLabelTextField {
         content
-            .spaceBetweenTitleText(1) // Sets the space between title and text.
+            .spaceBetweenTitleText(20) // Sets the space between title and text.
             .textAlignment(.leading) // Sets the alignment for text.
             .lineHeight(1) // Sets the line height.
             .selectedLineHeight(1.5) // Sets the selected line height.

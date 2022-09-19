@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A36673128D8AE41004198DB /* IntroSignUpAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36673028D8AE41004198DB /* IntroSignUpAdd.swift */; };
+		5A36673328D8B066004198DB /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36673228D8B066004198DB /* ViewExtension.swift */; };
 		5A516AE728D2B969007B2B2C /* IntroSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AE628D2B969007B2B2C /* IntroSignUp.swift */; };
 		5A516AE928D2BFAC007B2B2C /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AE828D2BFAC007B2B2C /* NavigationExtension.swift */; };
 		5A516AEC28D2F733007B2B2C /* ToggleSexButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AEB28D2F733007B2B2C /* ToggleSexButton.swift */; };
@@ -36,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		3C319D9F113EAFBB5CEB0541 /* Pods-Yoram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoram.debug.xcconfig"; path = "Target Support Files/Pods-Yoram/Pods-Yoram.debug.xcconfig"; sourceTree = "<group>"; };
+		5A36673028D8AE41004198DB /* IntroSignUpAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSignUpAdd.swift; sourceTree = "<group>"; };
+		5A36673228D8B066004198DB /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		5A516AE628D2B969007B2B2C /* IntroSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSignUp.swift; sourceTree = "<group>"; };
 		5A516AE828D2BFAC007B2B2C /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
 		5A516AEB28D2F733007B2B2C /* ToggleSexButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSexButton.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				5A873E0228CE445300ADD147 /* IntroLogin.swift */,
 				5A873E0B28CE570600ADD147 /* IntroViewModel.swift */,
 				5A516AE628D2B969007B2B2C /* IntroSignUp.swift */,
+				5A36673028D8AE41004198DB /* IntroSignUpAdd.swift */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				5A873E0728CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift */,
 				5A516AE828D2BFAC007B2B2C /* NavigationExtension.swift */,
 				5A516AED28D2FDA2007B2B2C /* ViewCornerExtension.swift */,
+				5A36673228D8B066004198DB /* ViewExtension.swift */,
 			);
 			path = MyView;
 			sourceTree = "<group>";
@@ -354,8 +360,10 @@
 				5A873E0128CE3DCB00ADD147 /* IntroMain.swift in Sources */,
 				5A516AE728D2B969007B2B2C /* IntroSignUp.swift in Sources */,
 				5A873E0828CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift in Sources */,
+				5A36673128D8AE41004198DB /* IntroSignUpAdd.swift in Sources */,
 				5A516AE928D2BFAC007B2B2C /* NavigationExtension.swift in Sources */,
 				5A873DD528CC842000ADD147 /* ContentView.swift in Sources */,
+				5A36673328D8B066004198DB /* ViewExtension.swift in Sources */,
 				5A873DE528CC86BE00ADD147 /* Home.swift in Sources */,
 				5A873DE828CC879400ADD147 /* TabBarView.swift in Sources */,
 				5A873E0328CE445300ADD147 /* IntroLogin.swift in Sources */,

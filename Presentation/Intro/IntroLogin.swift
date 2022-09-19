@@ -37,13 +37,13 @@ struct IntroLogin: View {
                     FloatingLabelTextField($viewModel.loginName, placeholder: "이름") { state in
                         
                     }.floatingStyle(MyFloatTextFieldStyle())
-                        .frame(height: 70)
+                        .frame(height: p.size.height/10)
 
                     FloatingLabelTextField($viewModel.loginPw, placeholder: "비밀번호") { state in
                         
                     }.isSecureTextEntry(true)
                         .floatingStyle(MyFloatTextFieldStyle())
-                        .frame(height: 70)
+                        .frame(height: p.size.height/10)
                     
                 }.padding(.horizontal, 30)
                 
@@ -79,7 +79,7 @@ struct IntroLogin: View {
                             .overlay(Text("시작하기")
                                 .foregroundColor(Color.white)
                                 .font(.custom("Pretendard-Bold", size: 18)))
-                    }.frame(width: p.size.width, height: p.size.height/10, alignment: .center)
+                    }.frame(width: p.size.width, height: p.size.height/9, alignment: .center)
                         .disabled(!viewModel.loginName.isEmpty && !viewModel.loginPw.isEmpty ? false : true)
                 }
                 
