@@ -6,10 +6,7 @@ target 'Yoram' do
   use_frameworks!
 
   # Pods for Yoram
-  pod 'Alamofire'
-  pod 'Kingfisher'
-  
-  pod 'FloatingLabelTextFieldSwiftUI'
   pod 'ExytePopupView'
+  pod 'KeyboardAvoider'
 
 end

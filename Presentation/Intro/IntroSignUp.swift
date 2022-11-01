@@ -1,13 +1,14 @@
 //
-//  IntroSignUp.swift
+//  NewIntroSignUp.swift
 //  Yoram
 //
-//  Created by 송준기 on 2022/09/15.
+//  Created by 송준기 on 2022/10/31.
 //
 
 import SwiftUI
 import FloatingLabelTextFieldSwiftUI
 import ExytePopupView
+import KeyboardAvoider
 
 struct IntroSignUp: View {
     @Environment(\.presentationMode) var presentationMode
@@ -16,6 +17,7 @@ struct IntroSignUp: View {
     @State private var isShowPasswordValid = false
     @State private var isShowBdPopUp = false
     @State private var tempDate: Date = Date()
+    @State private var isSignUpAddActive: Bool = false
     
     private var tfStyle: some FloatingLabelTextFieldStyle {
         MyFloatTextFieldStyle()
@@ -24,7 +26,7 @@ struct IntroSignUp: View {
     private var backBtn: some View {
         Button {
             self.presentationMode.wrappedValue.dismiss()
-            viewModel.eraseNewInfo()
+            viewModel.clearNewInfo()
         } label: {
             Image("BackButton")
         }
@@ -38,12 +40,9 @@ struct IntroSignUp: View {
     }
     
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(spacing: 0) {
             ScrollView {
-                VStack(spacing: 10) {
-                    Spacer()
-                    Spacer()
-                    Spacer()
+                VStack {
                     VStack(alignment: .leading) {
                         Text("회원가입을 위한")
                             .foregroundColor(Color("TextTitleColor"))
@@ -57,9 +56,10 @@ struct IntroSignUp: View {
                                 .foregroundColor(Color("TextTitleColor"))
                                 .font(.custom("Pretendard-Medium", size: 18))
                         }
-                    }.padding(.horizontal)
-                        .padding(.bottom, 30)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 70)
+                    .padding(.horizontal)
                     
                     FloatingLabelTextField($viewModel.newName, placeholder: "* 이름")
                         .floatingStyle(self.tfStyle)
@@ -109,42 +109,46 @@ struct IntroSignUp: View {
                         .disabled(true)
                         .frame(height: 70)
                         .padding(.horizontal)
+                        .padding(.bottom, 50)
                         .onTapGesture {
                             self.tempDate = viewModel.newBdDate
                             self.isShowBdPopUp = true
                         }
-                    
-                    Button(action: {}) {
-                        RoundedRectangle(cornerRadius: 5)
-                            .foregroundColor(viewModel.isDoneNewInfo() ? Color("PossibleColor") : Color("DisableColor"))
-                            .overlay(Text("다음으로")
-                                .foregroundColor(Color.white)
-                                .font(.custom("Pretendard-Bold", size: 18)))
-                    }
-                    .frame(height: 70)
-                    .padding(.horizontal)
-                    .padding(.top, 70)
-                    .disabled(viewModel.isDoneNewInfo() ? false : true)
-                    
                 }
-                .frame(maxHeight: .infinity)
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: self.backBtn)
-                .navigationTitle("회원가입")
-                
             }
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    backBtn
+                }
+            }
+            .navigationTitle("회원가입")
             
+            NavigationLink {
+                IntroSignUpAdd(viewModel: self.viewModel)
+            } label: {
+                Rectangle()
+                    .foregroundColor(viewModel.isDoneNewInfo() ? Color("PossibleColor") : Color("DisableColor"))
+                    .overlay(Text("다음으로")
+                        .foregroundColor(Color.white)
+                        .font(.custom("Pretendard-Bold", size: 18)))
+                    .frame(maxHeight: 70)
+            }
+            .disabled(!viewModel.isDoneNewInfo())
+            .edgesIgnoringSafeArea(.bottom)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .keyboardManagement()
+        .edgesIgnoringSafeArea(.bottom)
         .onAppear(perform: UIApplication.shared.hideKeyboard)
         .popup(isPresented: self.$isShowBdPopUp,
                type: .floater(verticalPadding: 0, useSafeAreaInset: false),
-               position: .bottom, dragToDismiss: true, closeOnTapOutside: true,
+               position: .bottom,
+        dragToDismiss: true,
+        closeOnTapOutside: true,
                backgroundColor: Color.gray.opacity(0.4)) {
             bdPicker
         }
     }
-    
     
     private var bdPicker: some View {
         VStack(alignment: .center, spacing: 5) {
@@ -191,7 +195,6 @@ struct IntroSignUp: View {
             .cornerRadius(5)
     }
 }
-
 
 struct IntroSignUp_Previews: PreviewProvider {
     static var previews: some View {

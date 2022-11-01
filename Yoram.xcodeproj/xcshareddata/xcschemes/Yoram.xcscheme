@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "1400"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F6129FEE7258F0F621C402FA13E86152"
-               BuildableName = "FloatingLabelTextFieldSwiftUI.framework"
-               BlueprintName = "FloatingLabelTextFieldSwiftUI"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "5A873DCE28CC842000ADD147"
+               BuildableName = "Yoram.app"
+               BlueprintName = "Yoram"
+               ReferencedContainer = "container:Yoram.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5A873DCE28CC842000ADD147"
+            BuildableName = "Yoram.app"
+            BlueprintName = "Yoram"
+            ReferencedContainer = "container:Yoram.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5A873DCE28CC842000ADD147"
+            BuildableName = "Yoram.app"
+            BlueprintName = "Yoram"
+            ReferencedContainer = "container:Yoram.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

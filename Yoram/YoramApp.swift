@@ -11,7 +11,6 @@ import SwiftUI
 struct YoramApp: App {
     var body: some Scene {
         WindowGroup {
-            //ContentView()
             Intro()
         }
     }

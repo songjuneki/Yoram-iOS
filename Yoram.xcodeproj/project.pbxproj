@@ -7,12 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A36673128D8AE41004198DB /* IntroSignUpAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36673028D8AE41004198DB /* IntroSignUpAdd.swift */; };
+		5A11966E28DC9FBF003FC967 /* MyToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11966D28DC9FBF003FC967 /* MyToggleButton.swift */; };
+		5A11967028E03E85003FC967 /* MyTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11966F28E03E85003FC967 /* MyTextInputField.swift */; };
 		5A36673328D8B066004198DB /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36673228D8B066004198DB /* ViewExtension.swift */; };
-		5A516AE728D2B969007B2B2C /* IntroSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AE628D2B969007B2B2C /* IntroSignUp.swift */; };
 		5A516AE928D2BFAC007B2B2C /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AE828D2BFAC007B2B2C /* NavigationExtension.swift */; };
 		5A516AEC28D2F733007B2B2C /* ToggleSexButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AEB28D2F733007B2B2C /* ToggleSexButton.swift */; };
 		5A516AEE28D2FDA2007B2B2C /* ViewCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AED28D2FDA2007B2B2C /* ViewCornerExtension.swift */; };
+		5A72B8BC290FD37000206EBC /* FloatingLabelTextFieldSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5A72B8BB290FD37000206EBC /* FloatingLabelTextFieldSwiftUI */; };
+		5A72B8BF290FD3AE00206EBC /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8BE290FD3AE00206EBC /* Intro.swift */; };
+		5A72B8C5290FDBD300206EBC /* IntroSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8C4290FDBD300206EBC /* IntroSignUp.swift */; };
+		5A72B8C92910FE7F00206EBC /* IntroMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8C82910FE7F00206EBC /* IntroMain.swift */; };
+		5A72B8CB2911014200206EBC /* IntroSignUpAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8CA2911014200206EBC /* IntroSignUpAdd.swift */; };
+		5A72B8CD2911200E00206EBC /* KeyboardManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8CC2911200E00206EBC /* KeyboardManagement.swift */; };
+		5A72B8CF29112E5B00206EBC /* IntroLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8CE29112E5B00206EBC /* IntroLogin.swift */; };
+		5A72B8D229114E6F00206EBC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5A72B8D129114E6F00206EBC /* Alamofire */; };
+		5A72B8D529114F5300206EBC /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8D429114F5300206EBC /* NewUser.swift */; };
+		5A72B8DB291156CC00206EBC /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 5A72B8DA291156CC00206EBC /* CombineMoya */; };
+		5A72B8DD291156CC00206EBC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 5A72B8DC291156CC00206EBC /* Moya */; };
+		5A72B8DF291157B800206EBC /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8DE291157B800206EBC /* UserAPI.swift */; };
+		5A72B8E12911580D00206EBC /* LoginCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8E02911580D00206EBC /* LoginCheck.swift */; };
+		5A72B8E329115A8F00206EBC /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8E229115A8F00206EBC /* ServiceAPI.swift */; };
+		5A72B8E629115BAB00206EBC /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8E529115BAB00206EBC /* Const.swift */; };
+		5A72B8E829115BBB00206EBC /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8E729115BBB00206EBC /* URL.swift */; };
+		5A72B8EB2911632600206EBC /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8EA2911632600206EBC /* UserRepository.swift */; };
 		5A873DD328CC842000ADD147 /* YoramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873DD228CC842000ADD147 /* YoramApp.swift */; };
 		5A873DD528CC842000ADD147 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873DD428CC842000ADD147 /* ContentView.swift */; };
 		5A873DD728CC842300ADD147 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A873DD628CC842300ADD147 /* Assets.xcassets */; };
@@ -28,9 +45,6 @@
 		5A873DF928CE386600ADD147 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A873DF028CE386600ADD147 /* Pretendard-Regular.otf */; };
 		5A873DFA28CE386600ADD147 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A873DF128CE386600ADD147 /* Pretendard-Black.otf */; };
 		5A873DFB28CE386600ADD147 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A873DF228CE386600ADD147 /* Pretendard-SemiBold.otf */; };
-		5A873DFF28CE3B5B00ADD147 /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873DFE28CE3B5B00ADD147 /* Intro.swift */; };
-		5A873E0128CE3DCB00ADD147 /* IntroMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873E0028CE3DCB00ADD147 /* IntroMain.swift */; };
-		5A873E0328CE445300ADD147 /* IntroLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873E0228CE445300ADD147 /* IntroLogin.swift */; };
 		5A873E0828CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873E0728CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift */; };
 		5A873E0C28CE570600ADD147 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873E0B28CE570600ADD147 /* IntroViewModel.swift */; };
 		F795196C6225092679F5A9A5 /* Pods_Yoram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB191DE1A994B7C8921248B6 /* Pods_Yoram.framework */; };
@@ -38,12 +52,25 @@
 
 /* Begin PBXFileReference section */
 		3C319D9F113EAFBB5CEB0541 /* Pods-Yoram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoram.debug.xcconfig"; path = "Target Support Files/Pods-Yoram/Pods-Yoram.debug.xcconfig"; sourceTree = "<group>"; };
-		5A36673028D8AE41004198DB /* IntroSignUpAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSignUpAdd.swift; sourceTree = "<group>"; };
+		5A11966D28DC9FBF003FC967 /* MyToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToggleButton.swift; sourceTree = "<group>"; };
+		5A11966F28E03E85003FC967 /* MyTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextInputField.swift; sourceTree = "<group>"; };
 		5A36673228D8B066004198DB /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
-		5A516AE628D2B969007B2B2C /* IntroSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSignUp.swift; sourceTree = "<group>"; };
 		5A516AE828D2BFAC007B2B2C /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
 		5A516AEB28D2F733007B2B2C /* ToggleSexButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSexButton.swift; sourceTree = "<group>"; };
 		5A516AED28D2FDA2007B2B2C /* ViewCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCornerExtension.swift; sourceTree = "<group>"; };
+		5A72B8BE290FD3AE00206EBC /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
+		5A72B8C4290FDBD300206EBC /* IntroSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSignUp.swift; sourceTree = "<group>"; };
+		5A72B8C82910FE7F00206EBC /* IntroMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroMain.swift; sourceTree = "<group>"; };
+		5A72B8CA2911014200206EBC /* IntroSignUpAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSignUpAdd.swift; sourceTree = "<group>"; };
+		5A72B8CC2911200E00206EBC /* KeyboardManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManagement.swift; sourceTree = "<group>"; };
+		5A72B8CE29112E5B00206EBC /* IntroLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroLogin.swift; sourceTree = "<group>"; };
+		5A72B8D429114F5300206EBC /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
+		5A72B8DE291157B800206EBC /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		5A72B8E02911580D00206EBC /* LoginCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheck.swift; sourceTree = "<group>"; };
+		5A72B8E229115A8F00206EBC /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
+		5A72B8E529115BAB00206EBC /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		5A72B8E729115BBB00206EBC /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		5A72B8EA2911632600206EBC /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		5A873DCF28CC842000ADD147 /* Yoram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yoram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A873DD228CC842000ADD147 /* YoramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoramApp.swift; sourceTree = "<group>"; };
 		5A873DD428CC842000ADD147 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,9 +88,6 @@
 		5A873DF128CE386600ADD147 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		5A873DF228CE386600ADD147 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		5A873DFC28CE38BF00ADD147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		5A873DFE28CE3B5B00ADD147 /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
-		5A873E0028CE3DCB00ADD147 /* IntroMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroMain.swift; sourceTree = "<group>"; };
-		5A873E0228CE445300ADD147 /* IntroLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroLogin.swift; sourceTree = "<group>"; };
 		5A873E0728CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFloatingTextFieldStyle.swift; sourceTree = "<group>"; };
 		5A873E0B28CE570600ADD147 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		CB191DE1A994B7C8921248B6 /* Pods_Yoram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yoram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +99,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A72B8D229114E6F00206EBC /* Alamofire in Frameworks */,
 				F795196C6225092679F5A9A5 /* Pods_Yoram.framework in Frameworks */,
+				5A72B8DB291156CC00206EBC /* CombineMoya in Frameworks */,
+				5A72B8DD291156CC00206EBC /* Moya in Frameworks */,
+				5A72B8BC290FD37000206EBC /* FloatingLabelTextFieldSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +135,41 @@
 			path = ToggleSexButton;
 			sourceTree = "<group>";
 		};
+		5A72B8D329114EE100206EBC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A72B8D429114F5300206EBC /* NewUser.swift */,
+				5A72B8E02911580D00206EBC /* LoginCheck.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5A72B8D62911523500206EBC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5A72B8DE291157B800206EBC /* UserAPI.swift */,
+				5A72B8E229115A8F00206EBC /* ServiceAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		5A72B8E429115B9300206EBC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5A72B8E529115BAB00206EBC /* Const.swift */,
+				5A72B8E729115BBB00206EBC /* URL.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5A72B8E92911630F00206EBC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				5A72B8EA2911632600206EBC /* UserRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		5A873DC628CC842000ADD147 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +194,7 @@
 		5A873DD128CC842000ADD147 /* Yoram */ = {
 			isa = PBXGroup;
 			children = (
+				5A72B8E429115B9300206EBC /* Resources */,
 				5A873DFC28CE38BF00ADD147 /* Info.plist */,
 				5A873DE928CE383900ADD147 /* Fonts */,
 				5A873DD228CC842000ADD147 /* YoramApp.swift */,
@@ -169,6 +233,9 @@
 		5A873DE228CC84E800ADD147 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				5A72B8E92911630F00206EBC /* Repository */,
+				5A72B8D62911523500206EBC /* API */,
+				5A72B8D329114EE100206EBC /* Model */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -208,12 +275,12 @@
 		5A873DFD28CE3AF900ADD147 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				5A873DFE28CE3B5B00ADD147 /* Intro.swift */,
-				5A873E0028CE3DCB00ADD147 /* IntroMain.swift */,
-				5A873E0228CE445300ADD147 /* IntroLogin.swift */,
+				5A72B8BE290FD3AE00206EBC /* Intro.swift */,
+				5A72B8C4290FDBD300206EBC /* IntroSignUp.swift */,
+				5A72B8CA2911014200206EBC /* IntroSignUpAdd.swift */,
+				5A72B8C82910FE7F00206EBC /* IntroMain.swift */,
+				5A72B8CE29112E5B00206EBC /* IntroLogin.swift */,
 				5A873E0B28CE570600ADD147 /* IntroViewModel.swift */,
-				5A516AE628D2B969007B2B2C /* IntroSignUp.swift */,
-				5A36673028D8AE41004198DB /* IntroSignUpAdd.swift */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -226,7 +293,10 @@
 				5A873E0728CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift */,
 				5A516AE828D2BFAC007B2B2C /* NavigationExtension.swift */,
 				5A516AED28D2FDA2007B2B2C /* ViewCornerExtension.swift */,
+				5A72B8CC2911200E00206EBC /* KeyboardManagement.swift */,
 				5A36673228D8B066004198DB /* ViewExtension.swift */,
+				5A11966D28DC9FBF003FC967 /* MyToggleButton.swift */,
+				5A11966F28E03E85003FC967 /* MyTextInputField.swift */,
 			);
 			path = MyView;
 			sourceTree = "<group>";
@@ -249,6 +319,12 @@
 			dependencies = (
 			);
 			name = Yoram;
+			packageProductDependencies = (
+				5A72B8BB290FD37000206EBC /* FloatingLabelTextFieldSwiftUI */,
+				5A72B8D129114E6F00206EBC /* Alamofire */,
+				5A72B8DA291156CC00206EBC /* CombineMoya */,
+				5A72B8DC291156CC00206EBC /* Moya */,
+			);
 			productName = Yoram;
 			productReference = 5A873DCF28CC842000ADD147 /* Yoram.app */;
 			productType = "com.apple.product-type.application";
@@ -277,6 +353,11 @@
 				Base,
 			);
 			mainGroup = 5A873DC628CC842000ADD147;
+			packageReferences = (
+				5A72B8BA290FD37000206EBC /* XCRemoteSwiftPackageReference "FloatingLabelTextFieldSwiftUI" */,
+				5A72B8D029114E6F00206EBC /* XCRemoteSwiftPackageReference "AlamoFire" */,
+				5A72B8D9291156CC00206EBC /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 5A873DD028CC842000ADD147 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,21 +435,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A72B8EB2911632600206EBC /* UserRepository.swift in Sources */,
 				5A516AEE28D2FDA2007B2B2C /* ViewCornerExtension.swift in Sources */,
-				5A873DFF28CE3B5B00ADD147 /* Intro.swift in Sources */,
+				5A72B8C92910FE7F00206EBC /* IntroMain.swift in Sources */,
+				5A72B8CF29112E5B00206EBC /* IntroLogin.swift in Sources */,
+				5A72B8E12911580D00206EBC /* LoginCheck.swift in Sources */,
+				5A72B8CD2911200E00206EBC /* KeyboardManagement.swift in Sources */,
+				5A72B8E629115BAB00206EBC /* Const.swift in Sources */,
 				5A516AEC28D2F733007B2B2C /* ToggleSexButton.swift in Sources */,
-				5A873E0128CE3DCB00ADD147 /* IntroMain.swift in Sources */,
-				5A516AE728D2B969007B2B2C /* IntroSignUp.swift in Sources */,
+				5A11966E28DC9FBF003FC967 /* MyToggleButton.swift in Sources */,
 				5A873E0828CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift in Sources */,
-				5A36673128D8AE41004198DB /* IntroSignUpAdd.swift in Sources */,
+				5A72B8D529114F5300206EBC /* NewUser.swift in Sources */,
 				5A516AE928D2BFAC007B2B2C /* NavigationExtension.swift in Sources */,
+				5A72B8CB2911014200206EBC /* IntroSignUpAdd.swift in Sources */,
 				5A873DD528CC842000ADD147 /* ContentView.swift in Sources */,
 				5A36673328D8B066004198DB /* ViewExtension.swift in Sources */,
+				5A72B8C5290FDBD300206EBC /* IntroSignUp.swift in Sources */,
+				5A72B8E829115BBB00206EBC /* URL.swift in Sources */,
 				5A873DE528CC86BE00ADD147 /* Home.swift in Sources */,
 				5A873DE828CC879400ADD147 /* TabBarView.swift in Sources */,
-				5A873E0328CE445300ADD147 /* IntroLogin.swift in Sources */,
+				5A72B8BF290FD3AE00206EBC /* Intro.swift in Sources */,
+				5A72B8E329115A8F00206EBC /* ServiceAPI.swift in Sources */,
 				5A873E0C28CE570600ADD147 /* IntroViewModel.swift in Sources */,
 				5A873DD328CC842000ADD147 /* YoramApp.swift in Sources */,
+				5A11967028E03E85003FC967 /* MyTextInputField.swift in Sources */,
+				5A72B8DF291157B800206EBC /* UserAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +516,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -479,7 +570,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -507,7 +598,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,7 +630,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,7 +654,7 @@
 				5A873DDC28CC842300ADD147 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		5A873DDD28CC842300ADD147 /* Build configuration list for PBXNativeTarget "Yoram" */ = {
 			isa = XCConfigurationList;
@@ -572,9 +663,59 @@
 				5A873DDF28CC842300ADD147 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A72B8BA290FD37000206EBC /* XCRemoteSwiftPackageReference "FloatingLabelTextFieldSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishanraja/FloatingLabelTextFieldSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		5A72B8D029114E6F00206EBC /* XCRemoteSwiftPackageReference "AlamoFire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AlamoFire/AlamoFire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		5A72B8D9291156CC00206EBC /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A72B8BB290FD37000206EBC /* FloatingLabelTextFieldSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A72B8BA290FD37000206EBC /* XCRemoteSwiftPackageReference "FloatingLabelTextFieldSwiftUI" */;
+			productName = FloatingLabelTextFieldSwiftUI;
+		};
+		5A72B8D129114E6F00206EBC /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A72B8D029114E6F00206EBC /* XCRemoteSwiftPackageReference "AlamoFire" */;
+			productName = Alamofire;
+		};
+		5A72B8DA291156CC00206EBC /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A72B8D9291156CC00206EBC /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		5A72B8DC291156CC00206EBC /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A72B8D9291156CC00206EBC /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A873DC728CC842000ADD147 /* Project object */;
 }

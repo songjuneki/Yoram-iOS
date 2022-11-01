@@ -1,18 +1,20 @@
 //
-//  IntroLogin.swift
+//  NewIntroLogin.swift
 //  Yoram
 //
-//  Created by 송준기 on 2022/09/12.
+//  Created by 송준기 on 2022/11/01.
 //
 
 import SwiftUI
 import FloatingLabelTextFieldSwiftUI
 
-
 struct IntroLogin: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: IntroViewModel
     
+    private var tfStyle: some FloatingLabelTextFieldStyle {
+        MyFloatTextFieldStyle()
+    }
     
     private var backBtn: some View {
         Button {
@@ -24,32 +26,25 @@ struct IntroLogin: View {
     
     
     var body: some View {
-        GeometryReader { p in
-            VStack(alignment:.center) {
-                Group {
-                    Spacer()
-                    Spacer()
+        VStack(spacing: 0) {
+            ScrollView {
+                VStack {
                     Image("Logo")
-                    Spacer()
-                }
-                
-                Group {
-                    FloatingLabelTextField($viewModel.loginName, placeholder: "이름") { state in
-                        
-                    }.floatingStyle(MyFloatTextFieldStyle())
-                        .frame(height: p.size.height/10)
-
-                    FloatingLabelTextField($viewModel.loginPw, placeholder: "비밀번호") { state in
-                        
-                    }.isSecureTextEntry(true)
-                        .floatingStyle(MyFloatTextFieldStyle())
-                        .frame(height: p.size.height/10)
+                        .padding(.vertical, 126)
                     
-                }.padding(.horizontal, 30)
-                
-
-                Group {
-                    Spacer()
+                    FloatingLabelTextField($viewModel.loginName, placeholder: "이름")
+                        .floatingStyle(tfStyle)
+                        .frame(maxHeight: 70)
+                        .padding(.horizontal, 30)
+                        .padding(.vertical, 15)
+                    
+                    FloatingLabelTextField($viewModel.loginName, placeholder: "비밀번호")
+                        .isSecureTextEntry(true)
+                        .floatingStyle(tfStyle)
+                        .frame(maxHeight: 70)
+                        .padding(.horizontal, 30)
+                        .padding(.vertical, 15)
+                    
                     HStack {
                         Text("비밀번호 찾기")
                             .foregroundColor(Color("TextHintColor"))
@@ -67,28 +62,36 @@ struct IntroLogin: View {
                                 // 회원가입 액션
                             }
                     }
-                    Spacer()
-                    Spacer()
+                    .padding(.vertical, 64)
                 }
-                
-                
-                Group {
-                    Button(action: {}) {
-                        RoundedRectangle(cornerRadius: 0)
-                            .foregroundColor(!viewModel.loginName.isEmpty && !viewModel.loginPw.isEmpty ? Color("PossibleColor") : Color("DisableColor"))
-                            .overlay(Text("시작하기")
-                                .foregroundColor(Color.white)
-                                .font(.custom("Pretendard-Bold", size: 18)))
-                    }.frame(width: p.size.width, height: p.size.height/9, alignment: .center)
-                        .disabled(!viewModel.loginName.isEmpty && !viewModel.loginPw.isEmpty ? false : true)
-                }
-                
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: self.backBtn)
-            .navigationBarTitle("로그인")
+            
+            Button {
+                // login action
+            } label: {
+                Rectangle()
+                    .foregroundColor(!viewModel.loginName.isEmpty && !viewModel.loginPw.isEmpty ? Color("PossibleColor") : Color("DisableColor"))
+                    .overlay(Text("시작하기")
+                        .foregroundColor(Color.white)
+                        .font(.custom("Pretendard-Bold", size: 18)))
+                    .frame(maxHeight: 80)
+            }
+            .disabled(!viewModel.loginName.isEmpty && !viewModel.loginPw.isEmpty ? false : true)
             .edgesIgnoringSafeArea(.bottom)
-            .position(x: p.size.width/2, y: p.size.height/2)
+        }
+        .keyboardManagement()
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                backBtn
+            }
+        }
+        .navigationTitle("로그인")
+        .onAppear(perform: UIApplication.shared.hideKeyboard)
+        .onDisappear {
+            viewModel.loginName = ""
+            viewModel.loginPw = ""
         }
     }
 }

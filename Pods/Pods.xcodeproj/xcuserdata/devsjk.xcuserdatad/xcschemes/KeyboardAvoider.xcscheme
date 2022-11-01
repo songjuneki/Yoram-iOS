@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E8022D22FAA6690B5E1C379C1BCE1491"
-               BuildableName = "Kingfisher.framework"
-               BlueprintName = "Kingfisher"
+               BlueprintIdentifier = "436822C39504F034A86DAE1EBA6F2B38"
+               BuildableName = "KeyboardAvoider.framework"
+               BlueprintName = "KeyboardAvoider"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

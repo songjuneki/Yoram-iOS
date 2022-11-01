@@ -1,26 +1,24 @@
 //
-//  Intro.swift
+//  NewIntro.swift
 //  Yoram
 //
-//  Created by 송준기 on 2022/09/12.
+//  Created by 송준기 on 2022/10/31.
 //
 
 import SwiftUI
 
 struct Intro: View {
-    @StateObject private var viewModel = IntroViewModel()
+    @StateObject var viewModel: IntroViewModel = IntroViewModel()
     
     var body: some View {
-        NavigationView {
-            IntroMain(viewModel: viewModel)
-                .navigationTitle("")
-        }.navigationTitle("")
-            .navigationBarHidden(true)
+        NavigationStack {
+            IntroMain(viewModel: self.viewModel)
+        }
     }
 }
 
 struct Intro_Previews: PreviewProvider {
     static var previews: some View {
-        Intro()
+        Intro(viewModel: IntroViewModel())
     }
 }
