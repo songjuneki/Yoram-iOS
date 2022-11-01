@@ -1,28 +1,20 @@
 PODS:
-  - Alamofire (5.6.1)
   - ExytePopupView (1.1.6)
-  - FloatingLabelTextFieldSwiftUI (4.2.1)
-  - Kingfisher (7.2.4)
+  - KeyboardAvoider (1.0.3)
 
 DEPENDENCIES:
-  - Alamofire
   - ExytePopupView
-  - FloatingLabelTextFieldSwiftUI
-  - Kingfisher
+  - KeyboardAvoider
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - ExytePopupView
-    - FloatingLabelTextFieldSwiftUI
-    - Kingfisher
+    - KeyboardAvoider
 
 SPEC CHECKSUMS:
-  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   ExytePopupView: da827797316240e93b67d7ca57b01bb693a28b01
-  FloatingLabelTextFieldSwiftUI: 28c373de56a07ce49318bdeeed18781ee6f2528f
-  Kingfisher: 2457be2121734e69e54a2312ecc0150eb9ae70b3
+  KeyboardAvoider: 9a53d579c0d656dcb81876ae8193ef320c70d994
 
-PODFILE CHECKSUM: 9514752ace30413a7e2167966e3b32988de2d7cd
+PODFILE CHECKSUM: 769ac3f57ed51e6690b574f92dd8e38df26e08da
 
 COCOAPODS: 1.11.3
