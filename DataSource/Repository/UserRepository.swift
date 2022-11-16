@@ -7,15 +7,30 @@
 
 import Foundation
 import Moya
-import Alamofire
-import CombineMoya
 import Combine
 
-class UserRepository {
-    static let shared: UserRepository = UserRepository()
+final class UserRepository {
     private let provider = MoyaProvider<UserAPI>()
     
-    func requestSignUp(_ newUser: NewUser) -> AnyPublisher<Response, MoyaError> {
-        return provider.requestPublisher(.SignUp(newUser))
+    func requestGetUser(name: String, bd: String = "") -> AnyPublisher<[User], APIError> {
+        return provider.requestPublisher(.Get(name: name, bd: bd))
+            .map([User].self)
+            .mapError { APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
     }
+    
+    func requestLogin(_ loginCheck: LoginCheck) -> AnyPublisher<Bool, APIError> {
+        return provider.requestPublisher(.Login(loginCheck))
+            .map(Bool.self)
+            .mapError { APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func requestSignUp(_ newUser: NewUser) -> AnyPublisher<Int, APIError> {
+        provider.requestPublisher(.SignUp(newUser))
+            .map(Int.self)
+            .mapError { APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
+    }
+
 }

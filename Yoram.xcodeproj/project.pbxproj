@@ -10,6 +10,7 @@
 		5A11966E28DC9FBF003FC967 /* MyToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11966D28DC9FBF003FC967 /* MyToggleButton.swift */; };
 		5A11967028E03E85003FC967 /* MyTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11966F28E03E85003FC967 /* MyTextInputField.swift */; };
 		5A36673328D8B066004198DB /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36673228D8B066004198DB /* ViewExtension.swift */; };
+		5A3CA818291F8ABF0026DE2E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3CA817291F8ABF0026DE2E /* User.swift */; };
 		5A516AE928D2BFAC007B2B2C /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AE828D2BFAC007B2B2C /* NavigationExtension.swift */; };
 		5A516AEC28D2F733007B2B2C /* ToggleSexButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AEB28D2F733007B2B2C /* ToggleSexButton.swift */; };
 		5A516AEE28D2FDA2007B2B2C /* ViewCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AED28D2FDA2007B2B2C /* ViewCornerExtension.swift */; };
@@ -26,7 +27,7 @@
 		5A72B8DD291156CC00206EBC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 5A72B8DC291156CC00206EBC /* Moya */; };
 		5A72B8DF291157B800206EBC /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8DE291157B800206EBC /* UserAPI.swift */; };
 		5A72B8E12911580D00206EBC /* LoginCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8E02911580D00206EBC /* LoginCheck.swift */; };
-		5A72B8E329115A8F00206EBC /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8E229115A8F00206EBC /* ServiceAPI.swift */; };
+		5A72B8E329115A8F00206EBC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8E229115A8F00206EBC /* APIError.swift */; };
 		5A72B8E629115BAB00206EBC /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8E529115BAB00206EBC /* Const.swift */; };
 		5A72B8E829115BBB00206EBC /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8E729115BBB00206EBC /* URL.swift */; };
 		5A72B8EB2911632600206EBC /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72B8EA2911632600206EBC /* UserRepository.swift */; };
@@ -47,6 +48,14 @@
 		5A873DFB28CE386600ADD147 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A873DF228CE386600ADD147 /* Pretendard-SemiBold.otf */; };
 		5A873E0828CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873E0728CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift */; };
 		5A873E0C28CE570600ADD147 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873E0B28CE570600ADD147 /* IntroViewModel.swift */; };
+		5AD8C878291E37D300704A15 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD8C877291E37D300704A15 /* iPhoneNumberField */; };
+		5AD8C87A291E3C7000704A15 /* MyPhoneNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C879291E3C7000704A15 /* MyPhoneNumberInputField.swift */; };
+		5AD8C87C291E4DD900704A15 /* AddressSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C87B291E4DD900704A15 /* AddressSearch.swift */; };
+		5AD8C87E291E56F600704A15 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C87D291E56F600704A15 /* Address.swift */; };
+		5AD8C880291E57D900704A15 /* ServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C87F291E57D900704A15 /* ServerAPI.swift */; };
+		5AD8C882291E5A5200704A15 /* ServerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C881291E5A5200704A15 /* ServerRepository.swift */; };
+		5AD8C885291EBA6500704A15 /* IntroUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C884291EBA6500704A15 /* IntroUseCase.swift */; };
+		5AD8C887291ED57300704A15 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C886291ED57300704A15 /* APIRequest.swift */; };
 		F795196C6225092679F5A9A5 /* Pods_Yoram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB191DE1A994B7C8921248B6 /* Pods_Yoram.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +64,7 @@
 		5A11966D28DC9FBF003FC967 /* MyToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToggleButton.swift; sourceTree = "<group>"; };
 		5A11966F28E03E85003FC967 /* MyTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextInputField.swift; sourceTree = "<group>"; };
 		5A36673228D8B066004198DB /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		5A3CA817291F8ABF0026DE2E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5A516AE828D2BFAC007B2B2C /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
 		5A516AEB28D2F733007B2B2C /* ToggleSexButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSexButton.swift; sourceTree = "<group>"; };
 		5A516AED28D2FDA2007B2B2C /* ViewCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCornerExtension.swift; sourceTree = "<group>"; };
@@ -67,7 +77,7 @@
 		5A72B8D429114F5300206EBC /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
 		5A72B8DE291157B800206EBC /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		5A72B8E02911580D00206EBC /* LoginCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheck.swift; sourceTree = "<group>"; };
-		5A72B8E229115A8F00206EBC /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
+		5A72B8E229115A8F00206EBC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		5A72B8E529115BAB00206EBC /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		5A72B8E729115BBB00206EBC /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		5A72B8EA2911632600206EBC /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -90,6 +100,13 @@
 		5A873DFC28CE38BF00ADD147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5A873E0728CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFloatingTextFieldStyle.swift; sourceTree = "<group>"; };
 		5A873E0B28CE570600ADD147 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
+		5AD8C879291E3C7000704A15 /* MyPhoneNumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhoneNumberInputField.swift; sourceTree = "<group>"; };
+		5AD8C87B291E4DD900704A15 /* AddressSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearch.swift; sourceTree = "<group>"; };
+		5AD8C87D291E56F600704A15 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		5AD8C87F291E57D900704A15 /* ServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAPI.swift; sourceTree = "<group>"; };
+		5AD8C881291E5A5200704A15 /* ServerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRepository.swift; sourceTree = "<group>"; };
+		5AD8C884291EBA6500704A15 /* IntroUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroUseCase.swift; sourceTree = "<group>"; };
+		5AD8C886291ED57300704A15 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		CB191DE1A994B7C8921248B6 /* Pods_Yoram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yoram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC913CF68A44D05E812986A3 /* Pods-Yoram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoram.release.xcconfig"; path = "Target Support Files/Pods-Yoram/Pods-Yoram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +121,7 @@
 				5A72B8DB291156CC00206EBC /* CombineMoya in Frameworks */,
 				5A72B8DD291156CC00206EBC /* Moya in Frameworks */,
 				5A72B8BC290FD37000206EBC /* FloatingLabelTextFieldSwiftUI in Frameworks */,
+				5AD8C878291E37D300704A15 /* iPhoneNumberField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +158,8 @@
 			children = (
 				5A72B8D429114F5300206EBC /* NewUser.swift */,
 				5A72B8E02911580D00206EBC /* LoginCheck.swift */,
+				5AD8C87D291E56F600704A15 /* Address.swift */,
+				5A3CA817291F8ABF0026DE2E /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,7 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				5A72B8DE291157B800206EBC /* UserAPI.swift */,
-				5A72B8E229115A8F00206EBC /* ServiceAPI.swift */,
+				5A72B8E229115A8F00206EBC /* APIError.swift */,
+				5AD8C87F291E57D900704A15 /* ServerAPI.swift */,
+				5AD8C886291ED57300704A15 /* APIRequest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -166,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				5A72B8EA2911632600206EBC /* UserRepository.swift */,
+				5AD8C881291E5A5200704A15 /* ServerRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -226,6 +249,7 @@
 		5A873DE128CC84DB00ADD147 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				5AD8C883291EBA4F00704A15 /* UseCase */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -277,6 +301,7 @@
 			children = (
 				5A72B8BE290FD3AE00206EBC /* Intro.swift */,
 				5A72B8C4290FDBD300206EBC /* IntroSignUp.swift */,
+				5AD8C87B291E4DD900704A15 /* AddressSearch.swift */,
 				5A72B8CA2911014200206EBC /* IntroSignUpAdd.swift */,
 				5A72B8C82910FE7F00206EBC /* IntroMain.swift */,
 				5A72B8CE29112E5B00206EBC /* IntroLogin.swift */,
@@ -297,8 +322,17 @@
 				5A36673228D8B066004198DB /* ViewExtension.swift */,
 				5A11966D28DC9FBF003FC967 /* MyToggleButton.swift */,
 				5A11966F28E03E85003FC967 /* MyTextInputField.swift */,
+				5AD8C879291E3C7000704A15 /* MyPhoneNumberInputField.swift */,
 			);
 			path = MyView;
+			sourceTree = "<group>";
+		};
+		5AD8C883291EBA4F00704A15 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				5AD8C884291EBA6500704A15 /* IntroUseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +358,7 @@
 				5A72B8D129114E6F00206EBC /* Alamofire */,
 				5A72B8DA291156CC00206EBC /* CombineMoya */,
 				5A72B8DC291156CC00206EBC /* Moya */,
+				5AD8C877291E37D300704A15 /* iPhoneNumberField */,
 			);
 			productName = Yoram;
 			productReference = 5A873DCF28CC842000ADD147 /* Yoram.app */;
@@ -357,6 +392,7 @@
 				5A72B8BA290FD37000206EBC /* XCRemoteSwiftPackageReference "FloatingLabelTextFieldSwiftUI" */,
 				5A72B8D029114E6F00206EBC /* XCRemoteSwiftPackageReference "AlamoFire" */,
 				5A72B8D9291156CC00206EBC /* XCRemoteSwiftPackageReference "Moya" */,
+				5AD8C876291E37D300704A15 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */,
 			);
 			productRefGroup = 5A873DD028CC842000ADD147 /* Products */;
 			projectDirPath = "";
@@ -441,13 +477,18 @@
 				5A72B8CF29112E5B00206EBC /* IntroLogin.swift in Sources */,
 				5A72B8E12911580D00206EBC /* LoginCheck.swift in Sources */,
 				5A72B8CD2911200E00206EBC /* KeyboardManagement.swift in Sources */,
+				5AD8C87E291E56F600704A15 /* Address.swift in Sources */,
 				5A72B8E629115BAB00206EBC /* Const.swift in Sources */,
+				5AD8C87C291E4DD900704A15 /* AddressSearch.swift in Sources */,
+				5AD8C880291E57D900704A15 /* ServerAPI.swift in Sources */,
 				5A516AEC28D2F733007B2B2C /* ToggleSexButton.swift in Sources */,
 				5A11966E28DC9FBF003FC967 /* MyToggleButton.swift in Sources */,
 				5A873E0828CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift in Sources */,
 				5A72B8D529114F5300206EBC /* NewUser.swift in Sources */,
+				5AD8C887291ED57300704A15 /* APIRequest.swift in Sources */,
 				5A516AE928D2BFAC007B2B2C /* NavigationExtension.swift in Sources */,
 				5A72B8CB2911014200206EBC /* IntroSignUpAdd.swift in Sources */,
+				5AD8C885291EBA6500704A15 /* IntroUseCase.swift in Sources */,
 				5A873DD528CC842000ADD147 /* ContentView.swift in Sources */,
 				5A36673328D8B066004198DB /* ViewExtension.swift in Sources */,
 				5A72B8C5290FDBD300206EBC /* IntroSignUp.swift in Sources */,
@@ -455,11 +496,14 @@
 				5A873DE528CC86BE00ADD147 /* Home.swift in Sources */,
 				5A873DE828CC879400ADD147 /* TabBarView.swift in Sources */,
 				5A72B8BF290FD3AE00206EBC /* Intro.swift in Sources */,
-				5A72B8E329115A8F00206EBC /* ServiceAPI.swift in Sources */,
+				5A72B8E329115A8F00206EBC /* APIError.swift in Sources */,
 				5A873E0C28CE570600ADD147 /* IntroViewModel.swift in Sources */,
 				5A873DD328CC842000ADD147 /* YoramApp.swift in Sources */,
 				5A11967028E03E85003FC967 /* MyTextInputField.swift in Sources */,
 				5A72B8DF291157B800206EBC /* UserAPI.swift in Sources */,
+				5AD8C882291E5A5200704A15 /* ServerRepository.swift in Sources */,
+				5AD8C87A291E3C7000704A15 /* MyPhoneNumberInputField.swift in Sources */,
+				5A3CA818291F8ABF0026DE2E /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +736,14 @@
 				kind = branch;
 			};
 		};
+		5AD8C876291E37D300704A15 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MojtabaHs/iPhoneNumberField";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -714,6 +766,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A72B8D9291156CC00206EBC /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		5AD8C877291E37D300704A15 /* iPhoneNumberField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AD8C876291E37D300704A15 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */;
+			productName = iPhoneNumberField;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

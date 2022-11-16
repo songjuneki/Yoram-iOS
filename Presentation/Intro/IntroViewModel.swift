@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import SwiftUI
+import CryptoKit
 
 class IntroViewModel: ObservableObject {
     //MARK: - Properties
@@ -15,6 +16,7 @@ class IntroViewModel: ObservableObject {
     
     @Published var loginName = ""
     @Published var loginPw = ""
+    @Published var loginBd = ""
     
     @Published var newName = ""
     @Published var newPw = ""
@@ -34,32 +36,40 @@ class IntroViewModel: ObservableObject {
     
     @Published var isSignUpSuccess = false
     
-    let userRepository = UserRepository.shared.self
+    private let useCase = IntroUseCase()
     
     private var subscription = Set<AnyCancellable>()
     
     
     //MARK: - Functions
-    func isValidNewPassword() -> Bool {
+    func isValidNewPassword() -> Binding<Bool> {
         let regex: String = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
         
         if self.newPw.isEmpty {
-            return false
+            return Binding.constant(false)
         } else if self.newPw.range(of: regex, options: .regularExpression) != nil {
-            return false
+            return Binding.constant(false)
         } else {
-            return true
+            return Binding.constant(true)
         }
     }
     
-    func isValidNewPaswordValid() -> Bool {
+    func isValidNewPaswordValid() -> Binding<Bool> {
         if self.newPwv.isEmpty {
-            return false
+            return Binding.constant(false)
         } else if self.newPw == self.newPwv {
-            return false
+            return Binding.constant(false)
         } else {
-            return true
+            return Binding.constant(true)
         }
+    }
+    
+    func isPhoneValid() -> Binding<Bool> {
+        if self.newPhone.isEmpty {
+            return Binding.constant(false)
+        }
+        let validation: Bool = self.newPhone.range(of: "^010-[0-9]{4}-[0-9]{4}$", options: .regularExpression) != nil
+        return Binding.constant(!validation)
     }
     
     func isDoneNewInfo() -> Bool {
@@ -71,7 +81,9 @@ class IntroViewModel: ObservableObject {
     }
     
     func isDoneNewInfoAdd() -> Bool {
-        return !self.newPhone.isEmpty && !self.newAddr.isEmpty && !self.newAddrMore.isEmpty
+        var phoneValid = !self.newPhone.isEmpty
+        phoneValid = phoneValid && (self.newPhone.range(of: "^010-[0-9]{4}-[0-9]{4}$", options: .regularExpression) != nil)
+        return phoneValid && !self.newAddr.isEmpty && !self.newAddrMore.isEmpty
     }
     
     
@@ -92,25 +104,130 @@ class IntroViewModel: ObservableObject {
     }
     
     private func makeNewUser() -> NewUser {
-        return NewUser(name: newName, pw: newPw, sex: newSex!, bd: newBd, phone: newPhone, tel: newTel, addr: newAddr, addrMore: newAddrMore, car: newCar)
+        return NewUser(name: newName, pw: newPw.toSHA256(), sex: newSex!, bd: newBd, phone: newPhone, tel: newTel, addr: newAddr, addrMore: newAddrMore, car: newCar)
     }
     
-    func signUp(onSuccess: @escaping () -> (), onFailure: @escaping () -> ()) {
-        let request = userRepository.requestSignUp(makeNewUser())
+//    func signUp(onSuccess: @escaping () -> (), onFailure: @escaping () -> ()) {
+//        let request = userRepository.requestSignUp(makeNewUser())
+//
+//        request.sink { completion in
+//            switch completion {
+//            case .finished:
+//                print("viewmodel signup finished")
+//            case .failure(let error):
+//                print("viewmodel signup failure : " + error.localizedDescription)
+//                onFailure()
+//            }
+//        } receiveValue: { response in
+//            print("response = " + response.description)
+//            guard let result = try? response.map(Int.self) else { onFailure(); return }
+//            print("viewmodel signup result=" + result.description)
+//            onSuccess()
+//        }.store(in: &subscription)
+//    }
+//
+//    func jusoSearch(_ keyword: String) -> [Address] {
+//        return serverRepository.requestJusoSearch(keyword)
+//    }
+//
+//    func isAddrInKeyword(dest: String, keyword: String) -> [Int] {
+//        var indices = [0, 0]
+//
+//        let startKeyword = dest.firstIndex(of: keyword.first!)
+//        let endKeyword = startKeyword + keyword.count
+//
+//    }
+    
+    private func findUser(name: String, success: @escaping ([User]) -> Void, failure: @escaping (LoginFailureType) -> Void) {
+        let response = useCase.getUserByName(name: name)
         
-        request.sink { completion in
+        response.sink { completion in
             switch completion {
             case .finished:
-                print("viewmodel signup finished")
-            case .failure(let error):
-                print("viewmodel signup failure : " + error.localizedDescription)
-                onFailure()
+                break
+            case .failure(let err):
+                print(err.message)
+                failure(.SERVER_ERROR)
+                return
             }
-        } receiveValue: { response in
-            print("response = " + response.description)
-            guard let result = try? response.map(Int.self) else { onFailure(); return }
-            print("viewmodel signup result=" + result.description)
-            onSuccess()
+        } receiveValue: { result in
+            success(result)
         }.store(in: &subscription)
+
+    }
+    
+    func login(success: @escaping (Bool) -> Void, failure: @escaping (LoginFailureType) -> Void) {
+        
+        findUser(name: loginName) { result in
+            if result.isEmpty {
+                failure(.NO_USER)
+                return
+            }
+            
+            if result.count > 1 {
+                failure(.DUPLICATED_NAME)
+                return
+            }
+            
+            if !self.loginBd.isEmpty && result.isEmpty {
+                failure(.INCORRECT_BD)
+                return
+            }
+            
+            let loginCheck = LoginCheck(id: result.first!.id, name: self.loginName, pw: self.loginPw.toSHA256(), bd: self.loginBd)
+            
+            self.useCase.login(loginCheck)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let err):
+                        print(err.message)
+                        failure(.SERVER_ERROR)
+                        return
+                    }
+                } receiveValue: { isLogin in
+                    success(isLogin)
+                }.store(in: &self.subscription)
+        } failure: { failType in
+            failure(failType)
+        }
+    }
+    
+    func searchAddress(_ keyword: String, success: @escaping ([Address]) -> Void) {
+        if !subscription.isEmpty {
+            subscription.forEach { c in
+                c.cancel()
+            }
+        }
+        
+        let response = useCase.queryAddress(keyword)
+        
+        response.sink { completion in
+            switch completion {
+            case .finished:
+                break
+            case .failure(let err):
+                print(err.message)
+                return
+            }
+        } receiveValue: { result in
+            success(result)
+        }.store(in: &subscription)
+    }
+}
+
+enum LoginFailureType {
+    case NO_USER
+    case INCORRECT
+    case DUPLICATED_NAME
+    case INCORRECT_BD
+    case SERVER_ERROR
+}
+
+extension String {
+    func toSHA256() -> String {
+        let data = self.data(using: .utf8)
+        return SHA256.hash(data: data!).compactMap { String(format: "%02x", $0) }.joined()
     }
 }

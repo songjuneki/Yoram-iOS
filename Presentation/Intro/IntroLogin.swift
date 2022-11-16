@@ -32,18 +32,15 @@ struct IntroLogin: View {
                     Image("Logo")
                         .padding(.vertical, 126)
                     
-                    FloatingLabelTextField($viewModel.loginName, placeholder: "이름")
-                        .floatingStyle(tfStyle)
+                    MyTextInputField(title: "이름", text: $viewModel.loginName)
                         .frame(maxHeight: 70)
                         .padding(.horizontal, 30)
-                        .padding(.vertical, 15)
+                        .padding(.top, 30)
                     
-                    FloatingLabelTextField($viewModel.loginName, placeholder: "비밀번호")
-                        .isSecureTextEntry(true)
-                        .floatingStyle(tfStyle)
+                    MyTextInputField(title: "비밀번호", text: $viewModel.loginPw, isSecure: true)
                         .frame(maxHeight: 70)
                         .padding(.horizontal, 30)
-                        .padding(.vertical, 15)
+                        .padding(.vertical, 30)
                     
                     HStack {
                         Text("비밀번호 찾기")
@@ -67,7 +64,26 @@ struct IntroLogin: View {
             }
             
             Button {
-                // login action
+                viewModel.login { isLogin in
+                    if isLogin {
+                        print("Login Success")
+                    } else {
+                        print("Login fail - Incorrect user info")
+                    }
+                } failure: { fail in
+                    switch fail {
+                    case .NO_USER:
+                        print("Login fail - No user")
+                    case .INCORRECT:
+                        print("Login fail - Incorrect user info")
+                    case .DUPLICATED_NAME:
+                        print("Login fail - Duplicated name")
+                    case .INCORRECT_BD:
+                        print("Login fail - Incorrect user BD")
+                    case .SERVER_ERROR:
+                        print("Login fail - Server Error")
+                    }
+                }
             } label: {
                 Rectangle()
                     .foregroundColor(!viewModel.loginName.isEmpty && !viewModel.loginPw.isEmpty ? Color("PossibleColor") : Color("DisableColor"))

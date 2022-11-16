@@ -39,6 +39,10 @@ struct IntroMain: View {
                 
                 NavigationLink {
                     IntroSignUp(viewModel: viewModel)
+                        .onAppear {
+                            viewModel.clearNewInfo()
+                            viewModel.clearNewInfoAdd()
+                        }
                 } label: {
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(lineWidth: 1)
@@ -77,9 +81,6 @@ struct IntroMain: View {
                 }
             
             Spacer()
-        }
-        .onAppear {
-            viewModel.clearNewInfo()
         }
     }
 }

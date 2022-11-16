@@ -27,6 +27,12 @@ struct KeyboardManagement: ViewModifier {
                             offset = 0
                         }
                     }
+                    
+                    NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidHideNotification, object: nil, queue: .main) { (notification) in
+                        withAnimation(Animation.easeOut(duration: 0.5)) {
+                            offset = 0
+                        }
+                    }
                 }
                 .padding(.bottom, offset)
         }

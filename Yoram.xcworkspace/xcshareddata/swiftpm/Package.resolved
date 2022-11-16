@@ -19,12 +19,30 @@
       }
     },
     {
+      "identity" : "iphonenumberfield",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MojtabaHs/iPhoneNumberField",
+      "state" : {
+        "revision" : "5298972c899ba3555a77549bebeace2e16bc927d",
+        "version" : "0.10.1"
+      }
+    },
+    {
       "identity" : "moya",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Moya/Moya.git",
       "state" : {
         "branch" : "master",
         "revision" : "77e67c0b25ebd785c6fe56cad544885f67c8c2c4"
+      }
+    },
+    {
+      "identity" : "phonenumberkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marmelroy/PhoneNumberKit",
+      "state" : {
+        "revision" : "ade48cc2d09c3180ac6e179577633b8c2660a8bf",
+        "version" : "3.5.0"
       }
     },
     {

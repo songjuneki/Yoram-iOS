@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FloatingLabelTextFieldSwiftUI
 import ExytePopupView
 import KeyboardAvoider
 
@@ -18,10 +17,6 @@ struct IntroSignUp: View {
     @State private var isShowBdPopUp = false
     @State private var tempDate: Date = Date()
     @State private var isSignUpAddActive: Bool = false
-    
-    private var tfStyle: some FloatingLabelTextFieldStyle {
-        MyFloatTextFieldStyle()
-    }
     
     private var backBtn: some View {
         Button {
@@ -61,56 +56,35 @@ struct IntroSignUp: View {
                     .padding(.top, 70)
                     .padding(.horizontal)
                     
-                    FloatingLabelTextField($viewModel.newName, placeholder: "* 이름")
-                        .floatingStyle(self.tfStyle)
-                        .frame(height: 70)
-                        .padding(.horizontal)
                     
-                    FloatingLabelTextField($viewModel.newPw, validtionChecker: self.$viewModel.newPwValid , placeholder: "* 비밀번호(영문+숫자 8자 이상)")
-                        .addValidation(.init(condition: self.viewModel.newPw.isValid(.password), errorMessage: "영문+숫자 8자 이상 입력해주세요"))
-                        .rightView({
-                            Button {
-                                withAnimation {
-                                    self.isShowPassword.toggle()
-                                }
-                            } label: {
-                                Image(self.isShowPassword ? "ShowSecure" : "HideSecure")
-                            }.padding(.horizontal, 10)
-                        })
-                        .isShowError(true)
-                        .isSecureTextEntry(!self.isShowPassword)
-                        .floatingStyle(self.tfStyle)
-                        .frame(height: 70)
+                    MyTextInputField(title: "이름", text: $viewModel.newName, hint: "* 이름")
+                        .frame(maxHeight: 70)
                         .padding(.horizontal)
+                        .padding(.top, 30)
                     
-                    FloatingLabelTextField($viewModel.newPwv, validtionChecker: self.$viewModel.newPwvValid, placeholder: "* 비밀번호 확인")
-                        .addValidation(.init(condition: self.viewModel.newPw == self.viewModel.newPwv, errorMessage: "비밀번호를 확인해 주세요"))
-                        .rightView({
-                            Button {
-                                withAnimation {
-                                    self.isShowPasswordValid.toggle()
-                                }
-                            } label: {
-                                Image(self.isShowPasswordValid ? "ShowSecure" : "HideSecure")
-                            }.padding(.horizontal, 10)
-                        })
-                        .isSecureTextEntry(!self.isShowPasswordValid)
-                        .isShowError(true)
-                        .floatingStyle(self.tfStyle)
-                        .frame(height: 70)
+                    
+                    MyTextInputField(title: "비밀번호", text: $viewModel.newPw, hint: "* 비밀번호(영문+숫자 8자 이상)", isSecure: true, showError: viewModel.isValidNewPassword(), errorMessage: "영문+숫자 8자 이상 입력해주세요")
+                    .frame(maxHeight: 70)
+                    .padding(.horizontal)
+                    .padding(.top, 30)
+                    
+                    
+                    MyTextInputField(title: "비밀번호 확인", text: $viewModel.newPwv, hint: "* 비밀번호 확인", isSecure: true, showError: viewModel.isValidNewPaswordValid(), errorMessage: "비밀번호를 확인해 주세요")
+                        .frame(maxHeight: 70)
                         .padding(.horizontal)
+                        .padding(.top, 30)
                     
                     ToggleSexButton(selectedSex: $viewModel.newSex)
                         .padding(.top, 30)
                         .padding(.horizontal)
                     
-                    FloatingLabelTextField($viewModel.newBd, placeholder: "* 생년월일")
-                        .floatingStyle(self.tfStyle)
+                    MyTextInputField(title: "생년월일", text: $viewModel.newBd)
                         .disabled(true)
-                        .frame(height: 70)
+                        .frame(maxHeight: 70)
                         .padding(.horizontal)
-                        .padding(.bottom, 50)
+                        .padding(.top, 50)
                         .onTapGesture {
+                            UIApplication.shared.endEditing()
                             self.tempDate = viewModel.newBdDate
                             self.isShowBdPopUp = true
                         }
@@ -139,7 +113,9 @@ struct IntroSignUp: View {
         }
         .keyboardManagement()
         .edgesIgnoringSafeArea(.bottom)
-        .onAppear(perform: UIApplication.shared.hideKeyboard)
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
         .popup(isPresented: self.$isShowBdPopUp,
                type: .floater(verticalPadding: 0, useSafeAreaInset: false),
                position: .bottom,

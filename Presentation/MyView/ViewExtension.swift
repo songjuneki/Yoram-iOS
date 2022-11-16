@@ -10,11 +10,19 @@ import SwiftUI
 
 extension UIApplication {
     func hideKeyboard() {
-        guard let window = windows.first else { return }
+        let scenes = self.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        
+//        guard let window = windows.first else { return }
         let tapRecognizer = UITapGestureRecognizer(target: window, action: #selector(UIView.endEditing))
         tapRecognizer.cancelsTouchesInView = false
         tapRecognizer.delegate = self
-        window.addGestureRecognizer(tapRecognizer)
+        window?.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
@@ -23,3 +31,14 @@ extension UIApplication: UIGestureRecognizerDelegate {
         return false
     }
 }
+
+
+extension String {
+    func highlight(keyword: String) -> String {
+        var changed = keyword
+        changed.insert(contentsOf: "[", at: changed.startIndex)
+        changed.append("](.)")
+        return self.replacingOccurrences(of: keyword, with: changed)
+    }
+}
+
