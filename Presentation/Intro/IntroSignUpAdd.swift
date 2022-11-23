@@ -159,11 +159,14 @@ struct IntroSignUpAdd: View {
             .onDisappear {
                 viewModel.clearNewInfoAdd()
             }
+            .sheet(isPresented: $showAddressSearch) {
+                AddressSearch(viewModel: self.viewModel, isShow: $showAddressSearch)
+            }
         }
-        .popup(isPresented: $showAddressSearch, type: .floater(verticalPadding: 0, useSafeAreaInset: false), position: .bottom, dragToDismiss: true, closeOnTap: false,
-               closeOnTapOutside: true, backgroundColor: Color.gray.opacity(0.4)) {
-            AddressSearch(viewModel: self.viewModel, isShow: $showAddressSearch)
-        }
+//        .popup(isPresented: $showAddressSearch, type: .floater(verticalPadding: 0, useSafeAreaInset: false), position: .bottom, dragToDismiss: true, closeOnTap: false,
+//               closeOnTapOutside: true, backgroundColor: Color.gray.opacity(0.4)) {
+//            AddressSearch(viewModel: self.viewModel, isShow: $showAddressSearch)
+//        }
     }
     
 }

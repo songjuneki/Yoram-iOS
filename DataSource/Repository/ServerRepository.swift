@@ -12,6 +12,12 @@ import Combine
 final class ServerRepository {
     private let provider = MoyaProvider<ServerAPI>()
     
+    func requestServerCheck() -> AnyPublisher<ServerStatus, APIError> {
+        return provider.requestPublisher(.Check)
+            .map(ServerStatus.self)
+            .mapError { APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
+    }
     
     func requestJusoSearch(_ keyword: String) -> AnyPublisher<[Address], APIError> {
         return provider.requestPublisher(.JusoSerach(keyword))
@@ -19,4 +25,8 @@ final class ServerRepository {
             .mapError{ APIError.init(moyaError: $0) }
             .eraseToAnyPublisher()
     }
+}
+
+struct ServerStatus: Codable {
+    var status: String
 }

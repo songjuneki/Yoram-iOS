@@ -9,6 +9,7 @@ import Foundation
 import Moya
 
 enum ServerAPI {
+    case Check
     case JusoSerach(String)
 }
 
@@ -17,18 +18,22 @@ extension ServerAPI: TargetType {
     
     var path: String {
         switch self {
+        case .Check: return "/hello"
         case .JusoSerach: return "/juso"
         }
     }
     
     var method: Moya.Method {
         switch self {
+        case .Check: return .get
         case .JusoSerach: return .get
         }
     }
     
     var task: Task {
         switch self {
+        case .Check:
+            return .requestPlain
         case .JusoSerach(let keyword):
             let param = ["keyword": keyword]
             return .requestParameters(parameters: param, encoding: URLEncoding.queryString)

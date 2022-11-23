@@ -32,5 +32,12 @@ final class UserRepository {
             .mapError { APIError.init(moyaError: $0) }
             .eraseToAnyPublisher()
     }
+    
+    func requestMyLoginData(_ id: Int) -> AnyPublisher<MyLoginData, APIError> {
+        provider.requestPublisher(.MyLoginData(id))
+            .map(MyLoginData.self)
+            .mapError { APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
+    }
 
 }

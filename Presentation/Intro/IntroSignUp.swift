@@ -34,7 +34,7 @@ struct IntroSignUp: View {
         return min!...max
     }
     
-    var body: some View {
+var body: some View {
         VStack(spacing: 0) {
             ScrollView {
                 VStack {

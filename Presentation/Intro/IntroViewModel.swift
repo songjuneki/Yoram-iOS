@@ -12,8 +12,6 @@ import CryptoKit
 
 class IntroViewModel: ObservableObject {
     //MARK: - Properties
-    @Published var path: [any View] = []
-    
     @Published var loginName = ""
     @Published var loginPw = ""
     @Published var loginBd = ""
@@ -35,6 +33,9 @@ class IntroViewModel: ObservableObject {
     @Published var newCar = ""
     
     @Published var isSignUpSuccess = false
+    
+    @AppStorage("isInit") private var isInit: Bool = false
+    @AppStorage("loginID") private var loginID: Int = -1
     
     private let useCase = IntroUseCase()
     
@@ -157,7 +158,6 @@ class IntroViewModel: ObservableObject {
     }
     
     func login(success: @escaping (Bool) -> Void, failure: @escaping (LoginFailureType) -> Void) {
-        
         findUser(name: loginName) { result in
             if result.isEmpty {
                 failure(.NO_USER)
@@ -187,7 +187,11 @@ class IntroViewModel: ObservableObject {
                         return
                     }
                 } receiveValue: { isLogin in
-                    success(isLogin)
+                    withAnimation {
+                        success(isLogin)
+                        self.loginID = loginCheck.id
+                        self.isInit = true
+                    }
                 }.store(in: &self.subscription)
         } failure: { failType in
             failure(failType)

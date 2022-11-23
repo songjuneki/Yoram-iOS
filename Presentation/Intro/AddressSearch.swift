@@ -80,7 +80,7 @@ struct AddressSearch: View {
                 .padding(.vertical, 15)
             
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                LazyVStack(alignment: .leading, spacing: 20) {
                     ForEach(addrList, id: \.self) { juso in
                         VStack(alignment: .leading, spacing: 8) {
                             Text(.init(juso.roadAddr.highlight(keyword: self.input)))

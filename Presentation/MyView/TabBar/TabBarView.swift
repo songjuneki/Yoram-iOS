@@ -25,8 +25,9 @@ struct TabBarView: View {
                 Spacer()
             })
         }.background(Color.white)
-            .edgesIgnoringSafeArea(.all)
+            .edgesIgnoringSafeArea(.horizontal)
     }
+
 }
 
 struct TabBarItem: View {
@@ -42,10 +43,14 @@ struct TabBarItem: View {
         } label: {
             VStack(alignment: .center, spacing: 4) {
                 if self.currentTab == tab {
-                    Image("\(img)Blue")
-                    Text(title).foregroundColor(Color("PossibleColor")).font(.custom("Pretendard-Medium", size: 12))
+                    Image(img)
+                        .renderingMode(.template)
+                        .foregroundColor(Color("PossibleColor"))
+                    
+                    Text(title).foregroundColor(Color("PossibleColor")).font(.custom("Pretendard-SemiBold", size: 12))
                 } else {
                     Image(img)
+                    
                     Text(title).foregroundColor(Color("DisableColor")).font(.custom("Pretendard-Medium", size: 12))
                 }
             }

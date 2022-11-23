@@ -12,6 +12,7 @@ enum UserAPI {
     case Get(name: String, bd: String)
     case SignUp(NewUser)
     case Login(LoginCheck)
+    case MyLoginData(Int)
 }
 
 extension UserAPI: TargetType {
@@ -22,6 +23,7 @@ extension UserAPI: TargetType {
         case .Get: return "/find"
         case .SignUp: return "/new"
         case .Login: return "/check"
+        case .MyLoginData: return "/my"
         }
     }
     
@@ -30,6 +32,7 @@ extension UserAPI: TargetType {
         case .Get: return .get
         case .SignUp: return .post
         case .Login: return .post
+        case .MyLoginData: return .get
         }
     }
     
@@ -43,6 +46,8 @@ extension UserAPI: TargetType {
             return .requestJSONEncodable(newUser)
         case .Login(let loginData):
             return .requestJSONEncodable(loginData)
+        case .MyLoginData(let id):
+            return .requestParameters(parameters: ["id" : id], encoding: URLEncoding.queryString)
         }
     }
     
