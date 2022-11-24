@@ -48,6 +48,10 @@
 		5A873DFB28CE386600ADD147 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A873DF228CE386600ADD147 /* Pretendard-SemiBold.otf */; };
 		5A873E0828CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873E0728CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift */; };
 		5A873E0C28CE570600ADD147 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A873E0B28CE570600ADD147 /* IntroViewModel.swift */; };
+		5A962CBC292E70980038AE9F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A962CBB292E70980038AE9F /* HapticManager.swift */; };
+		5A962CC3292F44750038AE9F /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A962CC2292F44750038AE9F /* BannerView.swift */; };
+		5A962CC6292F47F60038AE9F /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 5A962CC5292F47F60038AE9F /* SwiftUIPager */; };
+		5A962CC9292F4B460038AE9F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5A962CC8292F4B460038AE9F /* Kingfisher */; };
 		5AAFDE2B292E101C00B5C952 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE2A292E101C00B5C952 /* Main.swift */; };
 		5AAFDE2D292E102D00B5C952 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE2C292E102D00B5C952 /* MainViewModel.swift */; };
 		5AAFDE2F292E112100B5C952 /* MyLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE2E292E112100B5C952 /* MyLoginData.swift */; };
@@ -108,6 +112,8 @@
 		5A873DFC28CE38BF00ADD147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5A873E0728CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFloatingTextFieldStyle.swift; sourceTree = "<group>"; };
 		5A873E0B28CE570600ADD147 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
+		5A962CBB292E70980038AE9F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		5A962CC2292F44750038AE9F /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		5AAFDE2A292E101C00B5C952 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		5AAFDE2C292E102D00B5C952 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		5AAFDE2E292E112100B5C952 /* MyLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginData.swift; sourceTree = "<group>"; };
@@ -135,6 +141,8 @@
 				5A72B8D229114E6F00206EBC /* Alamofire in Frameworks */,
 				F795196C6225092679F5A9A5 /* Pods_Yoram.framework in Frameworks */,
 				5A72B8DB291156CC00206EBC /* CombineMoya in Frameworks */,
+				5A962CC6292F47F60038AE9F /* SwiftUIPager in Frameworks */,
+				5A962CC9292F4B460038AE9F /* Kingfisher in Frameworks */,
 				5A72B8DD291156CC00206EBC /* Moya in Frameworks */,
 				5A72B8BC290FD37000206EBC /* FloatingLabelTextFieldSwiftUI in Frameworks */,
 				5AD8C878291E37D300704A15 /* iPhoneNumberField in Frameworks */,
@@ -197,6 +205,7 @@
 			children = (
 				5A72B8E529115BAB00206EBC /* Const.swift */,
 				5A72B8E729115BBB00206EBC /* URL.swift */,
+				5A962CBB292E70980038AE9F /* HapticManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -284,11 +293,11 @@
 		5A873DE328CC868A00ADD147 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				5A873DE428CC86BE00ADD147 /* Home.swift */,
-				5AAFDE32292E19C400B5C952 /* Department.swift */,
-				5AAFDE36292E19D400B5C952 /* Board.swift */,
-				5AAFDE38292E19DC00B5C952 /* My.swift */,
-				5AAFDE34292E19CD00B5C952 /* ID.swift */,
+				5A962CC1292F44350038AE9F /* My */,
+				5A962CC0292F44310038AE9F /* ID */,
+				5A962CBF292F442D0038AE9F /* Board */,
+				5A962CBE292F44270038AE9F /* Department */,
+				5A962CBD292F441D0038AE9F /* Home */,
 				5AAFDE2A292E101C00B5C952 /* Main.swift */,
 				5AAFDE2C292E102D00B5C952 /* MainViewModel.swift */,
 			);
@@ -350,6 +359,47 @@
 			path = MyView;
 			sourceTree = "<group>";
 		};
+		5A962CBD292F441D0038AE9F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5A873DE428CC86BE00ADD147 /* Home.swift */,
+				5A962CC2292F44750038AE9F /* BannerView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5A962CBE292F44270038AE9F /* Department */ = {
+			isa = PBXGroup;
+			children = (
+				5AAFDE32292E19C400B5C952 /* Department.swift */,
+			);
+			path = Department;
+			sourceTree = "<group>";
+		};
+		5A962CBF292F442D0038AE9F /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				5AAFDE36292E19D400B5C952 /* Board.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		5A962CC0292F44310038AE9F /* ID */ = {
+			isa = PBXGroup;
+			children = (
+				5AAFDE34292E19CD00B5C952 /* ID.swift */,
+			);
+			path = ID;
+			sourceTree = "<group>";
+		};
+		5A962CC1292F44350038AE9F /* My */ = {
+			isa = PBXGroup;
+			children = (
+				5AAFDE38292E19DC00B5C952 /* My.swift */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
 		5AD8C883291EBA4F00704A15 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +433,8 @@
 				5A72B8DA291156CC00206EBC /* CombineMoya */,
 				5A72B8DC291156CC00206EBC /* Moya */,
 				5AD8C877291E37D300704A15 /* iPhoneNumberField */,
+				5A962CC5292F47F60038AE9F /* SwiftUIPager */,
+				5A962CC8292F4B460038AE9F /* Kingfisher */,
 			);
 			productName = Yoram;
 			productReference = 5A873DCF28CC842000ADD147 /* Yoram.app */;
@@ -417,6 +469,8 @@
 				5A72B8D029114E6F00206EBC /* XCRemoteSwiftPackageReference "AlamoFire" */,
 				5A72B8D9291156CC00206EBC /* XCRemoteSwiftPackageReference "Moya" */,
 				5AD8C876291E37D300704A15 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */,
+				5A962CC4292F47F60038AE9F /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+				5A962CC7292F4B460038AE9F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 5A873DD028CC842000ADD147 /* Products */;
 			projectDirPath = "";
@@ -506,6 +560,7 @@
 				5A72B8E629115BAB00206EBC /* Const.swift in Sources */,
 				5AD8C87C291E4DD900704A15 /* AddressSearch.swift in Sources */,
 				5AD8C880291E57D900704A15 /* ServerAPI.swift in Sources */,
+				5A962CC3292F44750038AE9F /* BannerView.swift in Sources */,
 				5A516AEC28D2F733007B2B2C /* ToggleSexButton.swift in Sources */,
 				5A11966E28DC9FBF003FC967 /* MyToggleButton.swift in Sources */,
 				5A873E0828CE4A5D00ADD147 /* MyFloatingTextFieldStyle.swift in Sources */,
@@ -532,6 +587,7 @@
 				5A11967028E03E85003FC967 /* MyTextInputField.swift in Sources */,
 				5A72B8DF291157B800206EBC /* UserAPI.swift in Sources */,
 				5AD8C882291E5A5200704A15 /* ServerRepository.swift in Sources */,
+				5A962CBC292E70980038AE9F /* HapticManager.swift in Sources */,
 				5AD8C87A291E3C7000704A15 /* MyPhoneNumberInputField.swift in Sources */,
 				5A3CA818291F8ABF0026DE2E /* User.swift in Sources */,
 				5AAFDE39292E19DC00B5C952 /* My.swift in Sources */,
@@ -768,6 +824,22 @@
 				kind = branch;
 			};
 		};
+		5A962CC4292F47F60038AE9F /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		5A962CC7292F4B460038AE9F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		5AD8C876291E37D300704A15 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MojtabaHs/iPhoneNumberField";
@@ -798,6 +870,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A72B8D9291156CC00206EBC /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		5A962CC5292F47F60038AE9F /* SwiftUIPager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A962CC4292F47F60038AE9F /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			productName = SwiftUIPager;
+		};
+		5A962CC8292F4B460038AE9F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A962CC7292F4B460038AE9F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		5AD8C877291E37D300704A15 /* iPhoneNumberField */ = {
 			isa = XCSwiftPackageProductDependency;

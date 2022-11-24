@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct Home: View {
-    @StateObject var viewModel: MainViewModel
+    @StateObject var mainViewModel: MainViewModel
     
     var body: some View {
-        Text("Hello \(viewModel.loginData.name) \(viewModel.loginData.positionName)")
+        Text("Hello \(mainViewModel.loginData.name) \(mainViewModel.loginData.positionName)")
     }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home(viewModel: MainViewModel())
+        Home(mainViewModel: MainViewModel())
     }
 }

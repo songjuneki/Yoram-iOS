@@ -13,7 +13,7 @@ final class UserRepository {
     private let provider = MoyaProvider<UserAPI>()
     
     func requestGetUser(name: String, bd: String = "") -> AnyPublisher<[User], APIError> {
-        return provider.requestPublisher(.Get(name: name, bd: bd))
+        return provider.requestPublisher(.Get(name, bd))
             .map([User].self)
             .mapError { APIError.init(moyaError: $0) }
             .eraseToAnyPublisher()

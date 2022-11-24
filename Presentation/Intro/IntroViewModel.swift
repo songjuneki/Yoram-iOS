@@ -139,6 +139,42 @@ class IntroViewModel: ObservableObject {
 //
 //    }
     
+    func signUp(onSuccess: @escaping () -> Void, onFailure: @escaping () -> Void) {
+        let response = useCase.signUpNewUser(makeNewUser())
+        response.sink { completion in
+            switch completion {
+            case .finished:
+                break
+            case .failure(let err):
+                print(err.message)
+                onFailure()
+                return
+            }
+        } receiveValue: { userId in
+            let loginCheck = LoginCheck(id: userId, name: self.newName, pw: self.newPwv.toSHA256(), bd: self.newBd)
+            self.useCase.login(loginCheck)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let err):
+                        print(err.message)
+                        onFailure()
+                        return
+                    }
+                } receiveValue: { isCorrectUser in
+                    if isCorrectUser {
+                        withAnimation {
+                            self.loginID = userId
+                            self.isInit = true
+                        }
+                    } else {
+                        onFailure()
+                    }
+                }.store(in: &self.subscription)
+        }.store(in: &subscription)
+    }
+    
     private func findUser(name: String, success: @escaping ([User]) -> Void, failure: @escaping (LoginFailureType) -> Void) {
         let response = useCase.getUserByName(name: name)
         
@@ -158,7 +194,7 @@ class IntroViewModel: ObservableObject {
     }
     
     func login(success: @escaping (Bool) -> Void, failure: @escaping (LoginFailureType) -> Void) {
-        findUser(name: loginName) { result in
+        findUser(name: self.loginName) { result in
             if result.isEmpty {
                 failure(.NO_USER)
                 return
@@ -182,6 +218,7 @@ class IntroViewModel: ObservableObject {
                     case .finished:
                         break
                     case .failure(let err):
+                        print(loginCheck)
                         print(err.message)
                         failure(.SERVER_ERROR)
                         return

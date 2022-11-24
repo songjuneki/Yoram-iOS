@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct My: View {
-    @AppStorage("isInit") private var isInit: Bool = true
-    @AppStorage("loginID") private var loginID: Int = -1
+    @StateObject var mainViewModel: MainViewModel
     
     var body: some View {
         VStack {
             Text("Hello, My")
             Button {
-                self.isInit = false
-                self.loginID = -1
+                mainViewModel.logout()
             } label: {
                 Text("로그아웃")
             }
@@ -27,6 +25,6 @@ struct My: View {
 
 struct My_Previews: PreviewProvider {
     static var previews: some View {
-        My()
+        My(mainViewModel: MainViewModel())
     }
 }

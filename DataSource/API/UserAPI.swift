@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum UserAPI {
-    case Get(name: String, bd: String)
+    case Get(String, String)
     case SignUp(NewUser)
     case Login(LoginCheck)
     case MyLoginData(Int)

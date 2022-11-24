@@ -39,9 +39,24 @@ struct KeyboardManagement: ViewModifier {
     }
 }
 
+struct DisableKeyboardManagement: ViewModifier {
+    func body(content: Content) -> some View {
+        GeometryReader { geo in
+            content
+                .padding(.bottom, 0)
+        }
+    }
+}
+
 
 extension View {
     func keyboardManagement() -> some View {
         self.modifier(KeyboardManagement())
+    }
+}
+
+extension View {
+    func keyboardManagementRelease() -> some View {
+        self.modifier(DisableKeyboardManagement())
     }
 }

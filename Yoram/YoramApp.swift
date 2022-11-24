@@ -12,7 +12,6 @@ struct YoramApp: App {
 //    @State private var isFirstView = true
     @AppStorage("isInit") private var isInit: Bool = false
     
-    
     var body: some Scene {
         WindowGroup {
             ZStack {

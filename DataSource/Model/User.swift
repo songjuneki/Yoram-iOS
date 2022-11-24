@@ -27,7 +27,7 @@ struct User: Codable, Equatable {
     let address: String
     let addressMore: String
     let permission: Int
-    let avatar: String
+    let avatar: String?
     let fname: String?
     let lname: String?
 

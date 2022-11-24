@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddressSearch: View {
-    @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: IntroViewModel
     @Binding var isShow: Bool
     
@@ -56,7 +55,6 @@ struct AddressSearch: View {
                         viewModel.searchAddress(newValue) { result in
                             addrList = result
                         }
-                        print("addrList.count=\(addrList.count)")
                     }
             }
             .padding(.horizontal)
@@ -90,6 +88,10 @@ struct AddressSearch: View {
                             Text("[지번] " + juso.jibunAddr)
                                 .font(.custom("Pretendard-Regular", size: 14))
                                 .foregroundColor(Color("TextHintColor"))
+                        }
+                        .onTapGesture {
+                            viewModel.newAddr = juso.roadAddr
+                            self.isShow = false
                         }
                         Divider()
                     }

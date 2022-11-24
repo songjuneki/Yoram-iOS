@@ -10,13 +10,13 @@ import Foundation
 // MARK: - MyLoginData
 struct MyLoginData: Codable, Hashable {
     let id: Int
-    let avatar: String
+    let avatar: String?
     let name: String
     let sex: Bool
     let department: Int
-    let departmentName: String
-    let departmentParent: Int
-    let departmentParentName: String
+    let departmentName: String?
+    let departmentParent: Int?
+    let departmentParentName: String?
     let position: Int
     let positionName: String
     let permission, attendCnt: Int

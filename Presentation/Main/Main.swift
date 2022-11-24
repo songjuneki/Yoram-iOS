@@ -14,23 +14,33 @@ struct Main: View {
         VStack(alignment: .center, spacing: 0) {
             ZStack(alignment:.bottom) {
                 TabView(selection: self.$viewModel.currentTab) {
-                    Home(viewModel: self.viewModel).tag(0)
+                    Home(mainViewModel: self.viewModel).tag(0)
                     Department().tag(1)
                     ID().tag(2)
                     Board().tag(3)
-                    My().tag(4)
-                }.tabViewStyle(.page(indexDisplayMode: .never))
+                    My(mainViewModel: self.viewModel).tag(4)
+                }.tabViewStyle(.automatic)
                     .edgesIgnoringSafeArea(.all)
                     .padding()
+                
                 TabBarView(currentTab: self.$viewModel.currentTab)
-                    .padding(.vertical)
+                    .padding(.bottom, 15)
+                    .zIndex(1)
             }
-        }.edgesIgnoringSafeArea(.bottom)
+        }
+        .onAppear {
+            self.viewModel.getMyLoginData()
+        }
+        .edgesIgnoringSafeArea(.vertical)
     }
 }
 
 struct Main_Previews: PreviewProvider {
     static var previews: some View {
-        Main()
+        ForEach(["iPhone 14 Pro", "iPhone 13 mini", "iPhone Xs"], id: \.self) {
+            Main()
+                .previewDevice(PreviewDevice(rawValue: $0))
+                .previewDisplayName($0)
+        }
     }
 }
