@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "activityindicatorview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/ActivityIndicatorView.git",
+      "state" : {
+        "revision" : "0fb57e69b6130b4beb8ba49eaafe13563f2f6bd6",
+        "version" : "1.1.0"
+      }
+    },
+    {
       "identity" : "alamofire",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AlamoFire/AlamoFire.git",
@@ -43,6 +52,15 @@
       "state" : {
         "branch" : "master",
         "revision" : "77e67c0b25ebd785c6fe56cad544885f67c8c2c4"
+      }
+    },
+    {
+      "identity" : "pageview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fredyshox/PageView.git",
+      "state" : {
+        "revision" : "059f893be1bf20646fa69d068dfc00900a5216d9",
+        "version" : "1.5.0"
       }
     },
     {

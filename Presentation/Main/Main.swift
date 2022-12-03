@@ -9,38 +9,63 @@ import SwiftUI
 
 struct Main: View {
     @StateObject private var viewModel: MainViewModel = MainViewModel()
+    @StateObject private var homeViewModel: HomeViewModel = HomeViewModel()
+    @StateObject private var dptViewModel: DepartmentViewModel = DepartmentViewModel()
     
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
-            ZStack(alignment:.bottom) {
-                TabView(selection: self.$viewModel.currentTab) {
-                    Home(mainViewModel: self.viewModel).tag(0)
-                    Department().tag(1)
-                    ID().tag(2)
-                    Board().tag(3)
-                    My(mainViewModel: self.viewModel).tag(4)
-                }.tabViewStyle(.automatic)
-                    .edgesIgnoringSafeArea(.all)
-                    .padding()
-                
+        GeometryReader { r in
+            //            VStack(alignment: .center, spacing: 0) {
+            //                ZStack(alignment: .bottom) {
+            //                    TabView(selection: self.$viewModel.currentTab) {
+            //                        Home(homeViewModel: self.homeViewModel, mainViewModel: self.viewModel).tag(0)
+            //                        Department().tag(1)
+            //                        ID().tag(2)
+            //                        Board().tag(3)
+            //                        My(mainViewModel: self.viewModel).tag(4)
+            //                    }.tabViewStyle(.automatic)
+            //                        .edgesIgnoringSafeArea(.all)
+            //
+            //                    TabBarView(currentTab: self.$viewModel.currentTab)
+            //                }
+            //            }
+            //            .edgesIgnoringSafeArea(.vertical)
+            //            .onAppear {
+            //                self.viewModel.getMyLoginData()
+            //            }
+            
+            ZStack {
+                getTabView(currentTab: self.viewModel.currentTab)
+                    .transition(.opacity.animation(.easeInOut))
+                    .edgesIgnoringSafeArea(.horizontal)
+                    
                 TabBarView(currentTab: self.$viewModel.currentTab)
-                    .padding(.bottom, 15)
-                    .zIndex(1)
+                    .position(x: r.size.width/2, y: r.size.height-10)
             }
+            .edgesIgnoringSafeArea(.bottom)
         }
-        .onAppear {
-            self.viewModel.getMyLoginData()
+    }
+    
+    @ViewBuilder
+    private func getTabView(currentTab: Int) -> some View {
+        switch currentTab {
+        case 0:
+            Home(homeViewModel: self.homeViewModel, mainViewModel: self.viewModel)
+        case 1:
+            DepartmentView(viewModel: self.dptViewModel, mainViewModel: self.viewModel)
+        case 2:
+            ID()
+        case 3:
+            Board()
+        case 4:
+            My(mainViewModel: self.viewModel)
+        default:
+            Home(homeViewModel: self.homeViewModel, mainViewModel: self.viewModel)
         }
-        .edgesIgnoringSafeArea(.vertical)
     }
 }
 
 struct Main_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(["iPhone 14 Pro", "iPhone 13 mini", "iPhone Xs"], id: \.self) {
             Main()
-                .previewDevice(PreviewDevice(rawValue: $0))
-                .previewDisplayName($0)
-        }
     }
 }

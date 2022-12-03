@@ -10,6 +10,7 @@ import Moya
 import Combine
 
 final class UserRepository {
+    static let instance = UserRepository()
     private let provider = MoyaProvider<UserAPI>()
     
     func requestGetUser(name: String, bd: String = "") -> AnyPublisher<[User], APIError> {
@@ -36,6 +37,27 @@ final class UserRepository {
     func requestMyLoginData(_ id: Int) -> AnyPublisher<MyLoginData, APIError> {
         provider.requestPublisher(.MyLoginData(id))
             .map(MyLoginData.self)
+            .mapError { APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func requestAllSimpleUserListByName(_ request: Int) -> AnyPublisher<[SimpleUser], APIError> {
+        return provider.requestPublisher(.GetUserListByName(request))
+            .map([SimpleUser].self)
+            .mapError { APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func requestSimpleUserListByDepartment(department: Int, request: Int) -> AnyPublisher<[SimpleUser], APIError> {
+        return provider.requestPublisher(.GetUserListByDepartment(department, request))
+            .map([SimpleUser].self)
+            .mapError { APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func requestSimpleUserListByPosition(position: Int, request: Int) -> AnyPublisher<[SimpleUser], APIError> {
+        return provider.requestPublisher(.GetUserListByPosition(position, request))
+            .map([SimpleUser].self)
             .mapError { APIError.init(moyaError: $0) }
             .eraseToAnyPublisher()
     }

@@ -14,27 +14,49 @@ struct TabBarView: View {
     private let imgList: [String] = ["Home", "Department", "ID", "Board", "My"]
     
     var body: some View {
-        ZStack {
-            HStack(alignment:.center) {
-                ForEach(Array(self.imgList.enumerated()), id: \.0, content: { index, img in
-                    Spacer()
-                    TabBarItem(currentTab: self.$currentTab,
-                               namespace: namespace.self,
-                               img: img,
-                               title: self.tabList[index],
-                               tab: index)
-                    Spacer()
-                })
+//        ZStack {
+//            HStack(alignment:.center) {
+//                ForEach(Array(self.imgList.enumerated()), id: \.0, content: { index, img in
+//                    Spacer()
+//                    TabBarItem(currentTab: self.$currentTab,
+//                               namespace: namespace.self,
+//                               img: img,
+//                               title: self.tabList[index],
+//                               tab: index)
+//                    Spacer()
+//                })
+//            }
+//            .zIndex(1)
+//
+//
+//            RoundedRectangle(cornerRadius: 5)
+//                .fill(.white)
+//                .padding(.vertical, -10)
+//                .padding(.bottom, -30)
+//                .zIndex(0)
+//        }
+//        .fixedSize(horizontal: false, vertical: true)
+//        .shadow(radius: 5, x: 0, y: 0)
+//        .edgesIgnoringSafeArea(.vertical)
+        HStack(alignment: .center) {
+            ForEach(Array(self.imgList.enumerated()), id: \.0) { index, img in
+                Spacer()
+                TabBarItem(currentTab: self.$currentTab,
+                           namespace: namespace.self,
+                           img: img,
+                           title: self.tabList[index],
+                           tab: index)
+                Spacer()
             }
-            .zIndex(1)
-            
+        }
+        .background {
             RoundedRectangle(cornerRadius: 5)
                 .fill(.white)
-                .padding(.vertical, -15)
-                .shadow(radius: 5, x: 0, y: 0)
-                .zIndex(0)
+                .shadow(radius: 5)
+                .padding(.top, -10)
+                .padding(.bottom, -50)
         }
-        .fixedSize(horizontal: false, vertical: true)
+        
     }
     
 }
@@ -48,7 +70,9 @@ struct TabBarItem: View {
     
     var body: some View {
         Button {
-            self.currentTab = tab
+            withAnimation {
+                self.currentTab = tab
+            }
             HapticManager.instance.impact(.light)
         } label: {
             VStack(alignment: .center, spacing: 4) {

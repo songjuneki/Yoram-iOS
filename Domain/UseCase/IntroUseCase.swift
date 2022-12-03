@@ -12,24 +12,20 @@ import CombineMoya
 import Combine
 
 final class IntroUseCase {
-    private let userRepository = UserRepository()
-    private let serverRepository = ServerRepository()
-    
-    
     func getUserByName(name: String) -> AnyPublisher<[User], APIError> {
-        return userRepository.requestGetUser(name: name)
+        return UserRepository.instance.requestGetUser(name: name)
     }
     
     func login(_ loginCheck: LoginCheck) -> AnyPublisher<Bool, APIError> {
-        return userRepository.requestLogin(loginCheck)
+        return UserRepository.instance.requestLogin(loginCheck)
     }
     
     func signUpNewUser(_ newUser: NewUser) -> AnyPublisher<Int, APIError> {
-        return userRepository.requestSignUp(newUser)
+        return UserRepository.instance.requestSignUp(newUser)
     }
     
     func queryAddress(_ keyword: String) -> AnyPublisher<[Address], APIError> {
-        return serverRepository.requestJusoSearch(keyword)
+        return ServerRepository.instance.requestJusoSearch(keyword)
     }
     
     

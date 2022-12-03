@@ -52,11 +52,17 @@
 		5A962CC3292F44750038AE9F /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A962CC2292F44750038AE9F /* BannerView.swift */; };
 		5A962CC6292F47F60038AE9F /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 5A962CC5292F47F60038AE9F /* SwiftUIPager */; };
 		5A962CC9292F4B460038AE9F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5A962CC8292F4B460038AE9F /* Kingfisher */; };
+		5A962CCB292F4D300038AE9F /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A962CCA292F4D300038AE9F /* Banner.swift */; };
+		5A962CCD292F4EAF0038AE9F /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A962CCC292F4EAF0038AE9F /* HomeUseCase.swift */; };
+		5A962CCF292F50230038AE9F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A962CCE292F50230038AE9F /* HomeViewModel.swift */; };
+		5A962CD2292F525A0038AE9F /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 5A962CD1292F525A0038AE9F /* ActivityIndicatorView */; };
+		5A962CD52930A02B0038AE9F /* PageView in Frameworks */ = {isa = PBXBuildFile; productRef = 5A962CD42930A02B0038AE9F /* PageView */; };
+		5A962CD92930A5E90038AE9F /* MyBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A962CD82930A5E90038AE9F /* MyBannerView.swift */; };
 		5AAFDE2B292E101C00B5C952 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE2A292E101C00B5C952 /* Main.swift */; };
 		5AAFDE2D292E102D00B5C952 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE2C292E102D00B5C952 /* MainViewModel.swift */; };
 		5AAFDE2F292E112100B5C952 /* MyLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE2E292E112100B5C952 /* MyLoginData.swift */; };
 		5AAFDE31292E120500B5C952 /* MainUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE30292E120500B5C952 /* MainUseCase.swift */; };
-		5AAFDE33292E19C400B5C952 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE32292E19C400B5C952 /* Department.swift */; };
+		5AAFDE33292E19C400B5C952 /* DepartmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE32292E19C400B5C952 /* DepartmentView.swift */; };
 		5AAFDE35292E19CD00B5C952 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE34292E19CD00B5C952 /* ID.swift */; };
 		5AAFDE37292E19D400B5C952 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE36292E19D400B5C952 /* Board.swift */; };
 		5AAFDE39292E19DC00B5C952 /* My.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE38292E19DC00B5C952 /* My.swift */; };
@@ -68,6 +74,14 @@
 		5AD8C882291E5A5200704A15 /* ServerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C881291E5A5200704A15 /* ServerRepository.swift */; };
 		5AD8C885291EBA6500704A15 /* IntroUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C884291EBA6500704A15 /* IntroUseCase.swift */; };
 		5AD8C887291ED57300704A15 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C886291ED57300704A15 /* APIRequest.swift */; };
+		5AE91B72293882E700675C24 /* DepartmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE91B71293882E700675C24 /* DepartmentViewModel.swift */; };
+		5AE91B7429389F2A00675C24 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE91B7329389F2A00675C24 /* UserCell.swift */; };
+		5AE91B7629389F8300675C24 /* SimpleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE91B7529389F8300675C24 /* SimpleUser.swift */; };
+		5AE91B782938A71500675C24 /* DepartmentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE91B772938A71500675C24 /* DepartmentAPI.swift */; };
+		5AE91B7A2938ABA700675C24 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE91B792938ABA700675C24 /* Department.swift */; };
+		5AE91B7C2938AD7500675C24 /* DepartmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE91B7B2938AD7500675C24 /* DepartmentRepository.swift */; };
+		5AE91B7E293B287300675C24 /* DepartmentNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE91B7D293B287300675C24 /* DepartmentNode.swift */; };
+		5AE91B80293B2AA500675C24 /* DepartmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE91B7F293B2AA500675C24 /* DepartmentUseCase.swift */; };
 		F795196C6225092679F5A9A5 /* Pods_Yoram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB191DE1A994B7C8921248B6 /* Pods_Yoram.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,11 +128,15 @@
 		5A873E0B28CE570600ADD147 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		5A962CBB292E70980038AE9F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		5A962CC2292F44750038AE9F /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		5A962CCA292F4D300038AE9F /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		5A962CCC292F4EAF0038AE9F /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
+		5A962CCE292F50230038AE9F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		5A962CD82930A5E90038AE9F /* MyBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBannerView.swift; sourceTree = "<group>"; };
 		5AAFDE2A292E101C00B5C952 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		5AAFDE2C292E102D00B5C952 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		5AAFDE2E292E112100B5C952 /* MyLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginData.swift; sourceTree = "<group>"; };
 		5AAFDE30292E120500B5C952 /* MainUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUseCase.swift; sourceTree = "<group>"; };
-		5AAFDE32292E19C400B5C952 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
+		5AAFDE32292E19C400B5C952 /* DepartmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentView.swift; sourceTree = "<group>"; };
 		5AAFDE34292E19CD00B5C952 /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
 		5AAFDE36292E19D400B5C952 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		5AAFDE38292E19DC00B5C952 /* My.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My.swift; sourceTree = "<group>"; };
@@ -129,6 +147,14 @@
 		5AD8C881291E5A5200704A15 /* ServerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRepository.swift; sourceTree = "<group>"; };
 		5AD8C884291EBA6500704A15 /* IntroUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroUseCase.swift; sourceTree = "<group>"; };
 		5AD8C886291ED57300704A15 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		5AE91B71293882E700675C24 /* DepartmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentViewModel.swift; sourceTree = "<group>"; };
+		5AE91B7329389F2A00675C24 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		5AE91B7529389F8300675C24 /* SimpleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUser.swift; sourceTree = "<group>"; };
+		5AE91B772938A71500675C24 /* DepartmentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentAPI.swift; sourceTree = "<group>"; };
+		5AE91B792938ABA700675C24 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
+		5AE91B7B2938AD7500675C24 /* DepartmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentRepository.swift; sourceTree = "<group>"; };
+		5AE91B7D293B287300675C24 /* DepartmentNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentNode.swift; sourceTree = "<group>"; };
+		5AE91B7F293B2AA500675C24 /* DepartmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentUseCase.swift; sourceTree = "<group>"; };
 		CB191DE1A994B7C8921248B6 /* Pods_Yoram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yoram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC913CF68A44D05E812986A3 /* Pods-Yoram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoram.release.xcconfig"; path = "Target Support Files/Pods-Yoram/Pods-Yoram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +165,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A72B8D229114E6F00206EBC /* Alamofire in Frameworks */,
+				5A962CD2292F525A0038AE9F /* ActivityIndicatorView in Frameworks */,
+				5A962CD52930A02B0038AE9F /* PageView in Frameworks */,
 				F795196C6225092679F5A9A5 /* Pods_Yoram.framework in Frameworks */,
 				5A72B8DB291156CC00206EBC /* CombineMoya in Frameworks */,
 				5A962CC6292F47F60038AE9F /* SwiftUIPager in Frameworks */,
@@ -177,16 +205,20 @@
 			path = ToggleSexButton;
 			sourceTree = "<group>";
 		};
-		5A72B8D329114EE100206EBC /* Model */ = {
+		5A72B8D329114EE100206EBC /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				5A72B8D429114F5300206EBC /* NewUser.swift */,
 				5A72B8E02911580D00206EBC /* LoginCheck.swift */,
 				5AD8C87D291E56F600704A15 /* Address.swift */,
+				5AE91B7D293B287300675C24 /* DepartmentNode.swift */,
 				5A3CA817291F8ABF0026DE2E /* User.swift */,
 				5AAFDE2E292E112100B5C952 /* MyLoginData.swift */,
+				5A962CCA292F4D300038AE9F /* Banner.swift */,
+				5AE91B7529389F8300675C24 /* SimpleUser.swift */,
+				5AE91B792938ABA700675C24 /* Department.swift */,
 			);
-			path = Model;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		5A72B8D62911523500206EBC /* API */ = {
@@ -196,6 +228,7 @@
 				5A72B8E229115A8F00206EBC /* APIError.swift */,
 				5AD8C87F291E57D900704A15 /* ServerAPI.swift */,
 				5AD8C886291ED57300704A15 /* APIRequest.swift */,
+				5AE91B772938A71500675C24 /* DepartmentAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -215,6 +248,7 @@
 			children = (
 				5A72B8EA2911632600206EBC /* UserRepository.swift */,
 				5AD8C881291E5A5200704A15 /* ServerRepository.swift */,
+				5AE91B7B2938AD7500675C24 /* DepartmentRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -285,7 +319,7 @@
 			children = (
 				5A72B8E92911630F00206EBC /* Repository */,
 				5A72B8D62911523500206EBC /* API */,
-				5A72B8D329114EE100206EBC /* Model */,
+				5A72B8D329114EE100206EBC /* Entity */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -364,6 +398,8 @@
 			children = (
 				5A873DE428CC86BE00ADD147 /* Home.swift */,
 				5A962CC2292F44750038AE9F /* BannerView.swift */,
+				5A962CD82930A5E90038AE9F /* MyBannerView.swift */,
+				5A962CCE292F50230038AE9F /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -371,7 +407,9 @@
 		5A962CBE292F44270038AE9F /* Department */ = {
 			isa = PBXGroup;
 			children = (
-				5AAFDE32292E19C400B5C952 /* Department.swift */,
+				5AAFDE32292E19C400B5C952 /* DepartmentView.swift */,
+				5AE91B71293882E700675C24 /* DepartmentViewModel.swift */,
+				5AE91B7329389F2A00675C24 /* UserCell.swift */,
 			);
 			path = Department;
 			sourceTree = "<group>";
@@ -405,6 +443,8 @@
 			children = (
 				5AD8C884291EBA6500704A15 /* IntroUseCase.swift */,
 				5AAFDE30292E120500B5C952 /* MainUseCase.swift */,
+				5A962CCC292F4EAF0038AE9F /* HomeUseCase.swift */,
+				5AE91B7F293B2AA500675C24 /* DepartmentUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -435,6 +475,8 @@
 				5AD8C877291E37D300704A15 /* iPhoneNumberField */,
 				5A962CC5292F47F60038AE9F /* SwiftUIPager */,
 				5A962CC8292F4B460038AE9F /* Kingfisher */,
+				5A962CD1292F525A0038AE9F /* ActivityIndicatorView */,
+				5A962CD42930A02B0038AE9F /* PageView */,
 			);
 			productName = Yoram;
 			productReference = 5A873DCF28CC842000ADD147 /* Yoram.app */;
@@ -471,6 +513,8 @@
 				5AD8C876291E37D300704A15 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */,
 				5A962CC4292F47F60038AE9F /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 				5A962CC7292F4B460038AE9F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				5A962CD0292F525A0038AE9F /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+				5A962CD32930A02A0038AE9F /* XCRemoteSwiftPackageReference "PageView" */,
 			);
 			productRefGroup = 5A873DD028CC842000ADD147 /* Products */;
 			projectDirPath = "";
@@ -549,17 +593,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AE91B7C2938AD7500675C24 /* DepartmentRepository.swift in Sources */,
 				5AAFDE2D292E102D00B5C952 /* MainViewModel.swift in Sources */,
 				5A72B8EB2911632600206EBC /* UserRepository.swift in Sources */,
 				5A516AEE28D2FDA2007B2B2C /* ViewCornerExtension.swift in Sources */,
 				5A72B8C92910FE7F00206EBC /* IntroMain.swift in Sources */,
 				5A72B8CF29112E5B00206EBC /* IntroLogin.swift in Sources */,
+				5A962CCF292F50230038AE9F /* HomeViewModel.swift in Sources */,
+				5AE91B80293B2AA500675C24 /* DepartmentUseCase.swift in Sources */,
 				5A72B8E12911580D00206EBC /* LoginCheck.swift in Sources */,
 				5A72B8CD2911200E00206EBC /* KeyboardManagement.swift in Sources */,
+				5AE91B7E293B287300675C24 /* DepartmentNode.swift in Sources */,
 				5AD8C87E291E56F600704A15 /* Address.swift in Sources */,
 				5A72B8E629115BAB00206EBC /* Const.swift in Sources */,
+				5A962CD92930A5E90038AE9F /* MyBannerView.swift in Sources */,
+				5A962CCD292F4EAF0038AE9F /* HomeUseCase.swift in Sources */,
+				5AE91B72293882E700675C24 /* DepartmentViewModel.swift in Sources */,
+				5AE91B7429389F2A00675C24 /* UserCell.swift in Sources */,
 				5AD8C87C291E4DD900704A15 /* AddressSearch.swift in Sources */,
 				5AD8C880291E57D900704A15 /* ServerAPI.swift in Sources */,
+				5AE91B7629389F8300675C24 /* SimpleUser.swift in Sources */,
 				5A962CC3292F44750038AE9F /* BannerView.swift in Sources */,
 				5A516AEC28D2F733007B2B2C /* ToggleSexButton.swift in Sources */,
 				5A11966E28DC9FBF003FC967 /* MyToggleButton.swift in Sources */,
@@ -578,20 +631,23 @@
 				5A72B8E829115BBB00206EBC /* URL.swift in Sources */,
 				5AAFDE2B292E101C00B5C952 /* Main.swift in Sources */,
 				5AAFDE35292E19CD00B5C952 /* ID.swift in Sources */,
+				5AE91B7A2938ABA700675C24 /* Department.swift in Sources */,
 				5A873DE528CC86BE00ADD147 /* Home.swift in Sources */,
 				5A873DE828CC879400ADD147 /* TabBarView.swift in Sources */,
 				5A72B8BF290FD3AE00206EBC /* Intro.swift in Sources */,
 				5A72B8E329115A8F00206EBC /* APIError.swift in Sources */,
 				5A873E0C28CE570600ADD147 /* IntroViewModel.swift in Sources */,
+				5AE91B782938A71500675C24 /* DepartmentAPI.swift in Sources */,
 				5A873DD328CC842000ADD147 /* YoramApp.swift in Sources */,
 				5A11967028E03E85003FC967 /* MyTextInputField.swift in Sources */,
 				5A72B8DF291157B800206EBC /* UserAPI.swift in Sources */,
+				5A962CCB292F4D300038AE9F /* Banner.swift in Sources */,
 				5AD8C882291E5A5200704A15 /* ServerRepository.swift in Sources */,
 				5A962CBC292E70980038AE9F /* HapticManager.swift in Sources */,
 				5AD8C87A291E3C7000704A15 /* MyPhoneNumberInputField.swift in Sources */,
 				5A3CA818291F8ABF0026DE2E /* User.swift in Sources */,
 				5AAFDE39292E19DC00B5C952 /* My.swift in Sources */,
-				5AAFDE33292E19C400B5C952 /* Department.swift in Sources */,
+				5AAFDE33292E19C400B5C952 /* DepartmentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,6 +896,22 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		5A962CD0292F525A0038AE9F /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		5A962CD32930A02A0038AE9F /* XCRemoteSwiftPackageReference "PageView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fredyshox/PageView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		5AD8C876291E37D300704A15 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MojtabaHs/iPhoneNumberField";
@@ -880,6 +952,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A962CC7292F4B460038AE9F /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		5A962CD1292F525A0038AE9F /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A962CD0292F525A0038AE9F /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
+		};
+		5A962CD42930A02B0038AE9F /* PageView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A962CD32930A02A0038AE9F /* XCRemoteSwiftPackageReference "PageView" */;
+			productName = PageView;
 		};
 		5AD8C877291E37D300704A15 /* iPhoneNumberField */ = {
 			isa = XCSwiftPackageProductDependency;

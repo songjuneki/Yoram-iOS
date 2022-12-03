@@ -10,6 +10,7 @@ import Moya
 import Combine
 
 final class ServerRepository {
+    static let instance = ServerRepository()
     private let provider = MoyaProvider<ServerAPI>()
     
     func requestServerCheck() -> AnyPublisher<ServerStatus, APIError> {
@@ -23,6 +24,20 @@ final class ServerRepository {
         return provider.requestPublisher(.JusoSerach(keyword))
             .map([Address].self)
             .mapError{ APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func requestBannerList(_ detail: Bool = false) -> AnyPublisher<[Banner], APIError> {
+        return provider.requestPublisher(.BannerList(detail))
+            .map([Banner].self)
+            .mapError { APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func requestMaxWeek() -> AnyPublisher<Int, APIError> {
+        return provider.requestPublisher(.MaxWeek)
+            .map(Int.self)
+            .mapError { APIError.init(moyaError: $0) }
             .eraseToAnyPublisher()
     }
 }

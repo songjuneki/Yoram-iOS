@@ -12,10 +12,11 @@ import CombineMoya
 import Combine
 
 final class MainUseCase {
-    private let userRepository = UserRepository()
-    private let serverRepository = ServerRepository()
-    
     func getMyLoginData(_ id: Int) -> AnyPublisher<MyLoginData, APIError> {
-        return userRepository.requestMyLoginData(id)
+        return UserRepository.instance.requestMyLoginData(id)
+    }
+    
+    func getMaxWeek() -> AnyPublisher<Int, APIError> {
+        return ServerRepository.instance.requestMaxWeek()
     }
 }

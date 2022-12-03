@@ -13,10 +13,14 @@ enum UserAPI {
     case SignUp(NewUser)
     case Login(LoginCheck)
     case MyLoginData(Int)
+    
+    case GetUserListByName(Int)
+    case GetUserListByDepartment(Int, Int)
+    case GetUserListByPosition(Int, Int)
 }
 
 extension UserAPI: TargetType {
-    var baseURL: URL { URL(string: Const.URL.base + Const.URL.user)! }
+    var baseURL: URL { URL(string: Const.URL.BASE + Const.URL.USER)! }
     
     var path: String {
         switch self {
@@ -24,6 +28,10 @@ extension UserAPI: TargetType {
         case .SignUp: return "/new"
         case .Login: return "/check"
         case .MyLoginData: return "/my"
+            
+        case .GetUserListByName: return "/name/all"
+        case .GetUserListByDepartment: return "/dpt"
+        case .GetUserListByPosition: return "/pos/sp"
         }
     }
     
@@ -33,6 +41,7 @@ extension UserAPI: TargetType {
         case .SignUp: return .post
         case .Login: return .post
         case .MyLoginData: return .get
+        case .GetUserListByName, .GetUserListByDepartment, .GetUserListByPosition: return .get
         }
     }
     
@@ -48,6 +57,12 @@ extension UserAPI: TargetType {
             return .requestJSONEncodable(loginData)
         case .MyLoginData(let id):
             return .requestParameters(parameters: ["id" : id], encoding: URLEncoding.queryString)
+        case .GetUserListByName(let request):
+            return .requestParameters(parameters: ["request": request], encoding: URLEncoding.queryString)
+        case .GetUserListByDepartment(let dpt, let request):
+            return .requestParameters(parameters: ["dpt": dpt, "request": request], encoding: URLEncoding.queryString)
+        case .GetUserListByPosition(let pos, let request):
+            return .requestParameters(parameters: ["pos": pos, "request": request], encoding: URLEncoding.queryString)
         }
     }
     
