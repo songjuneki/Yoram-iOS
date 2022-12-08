@@ -17,6 +17,7 @@ struct UserCell: View {
                 .placeholder({ progress in
                     Circle()
                         .fill(.gray)
+                        .redacted(reason: .placeholder)
                         .frame(width: 80, height: 80)
                 })
                 .setProcessor(DownsamplingImageProcessor(size: CGSize(width: 80, height: 80)))

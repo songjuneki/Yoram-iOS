@@ -66,6 +66,7 @@
 		5AAFDE35292E19CD00B5C952 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE34292E19CD00B5C952 /* ID.swift */; };
 		5AAFDE37292E19D400B5C952 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE36292E19D400B5C952 /* Board.swift */; };
 		5AAFDE39292E19DC00B5C952 /* My.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE38292E19DC00B5C952 /* My.swift */; };
+		5AB28F34293F396A00EA903E /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB28F33293F396A00EA903E /* Shimmer */; };
 		5AD8C878291E37D300704A15 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD8C877291E37D300704A15 /* iPhoneNumberField */; };
 		5AD8C87A291E3C7000704A15 /* MyPhoneNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C879291E3C7000704A15 /* MyPhoneNumberInputField.swift */; };
 		5AD8C87C291E4DD900704A15 /* AddressSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8C87B291E4DD900704A15 /* AddressSearch.swift */; };
@@ -174,6 +175,7 @@
 				5A72B8DD291156CC00206EBC /* Moya in Frameworks */,
 				5A72B8BC290FD37000206EBC /* FloatingLabelTextFieldSwiftUI in Frameworks */,
 				5AD8C878291E37D300704A15 /* iPhoneNumberField in Frameworks */,
+				5AB28F34293F396A00EA903E /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +479,7 @@
 				5A962CC8292F4B460038AE9F /* Kingfisher */,
 				5A962CD1292F525A0038AE9F /* ActivityIndicatorView */,
 				5A962CD42930A02B0038AE9F /* PageView */,
+				5AB28F33293F396A00EA903E /* Shimmer */,
 			);
 			productName = Yoram;
 			productReference = 5A873DCF28CC842000ADD147 /* Yoram.app */;
@@ -515,6 +518,7 @@
 				5A962CC7292F4B460038AE9F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				5A962CD0292F525A0038AE9F /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 				5A962CD32930A02A0038AE9F /* XCRemoteSwiftPackageReference "PageView" */,
+				5AB28F32293F396A00EA903E /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = 5A873DD028CC842000ADD147 /* Products */;
 			projectDirPath = "";
@@ -912,6 +916,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		5AB28F32293F396A00EA903E /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		5AD8C876291E37D300704A15 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MojtabaHs/iPhoneNumberField";
@@ -962,6 +974,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A962CD32930A02A0038AE9F /* XCRemoteSwiftPackageReference "PageView" */;
 			productName = PageView;
+		};
+		5AB28F33293F396A00EA903E /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AB28F32293F396A00EA903E /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
 		};
 		5AD8C877291E37D300704A15 /* iPhoneNumberField */ = {
 			isa = XCSwiftPackageProductDependency;
