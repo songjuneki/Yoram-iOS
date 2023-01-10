@@ -14,16 +14,16 @@ final class DepartmentUseCase {
         return UserRepository.instance.requestAllSimpleUserListByName(request)
     }
     
-    func getTopDepartmentList() -> AnyPublisher<[Department], APIError> {
-        return DepartmentRepository.instance.requestTopDepartmentList()
+    func getAllDepartmentNodeList(_ request: Int) -> AnyPublisher<[DepartmentNode], APIError> {
+        return DepartmentRepository.instance.getAllDepartmentNode(request)
     }
     
-    func getChildDepartmentList(_ parent: Int) -> AnyPublisher<[Department], APIError> {
-        return DepartmentRepository.instance.requestChildDepartmentList(parent)
+    func getAllPositionNodeList(_ request: Int) -> AnyPublisher<[DepartmentNode], APIError> {
+        return DepartmentRepository.instance.getAllDepartmentNodeByPosition(request)
     }
     
-    func getUserListFromDepartment(department: Int, request: Int) -> AnyPublisher<[SimpleUser], APIError> {
-        return UserRepository.instance.requestSimpleUserListByDepartment(department: department, request: request)
+    func getUserDetail(_ id: Int, _ request: Int) -> AnyPublisher<UserDetail, APIError> {
+        return UserRepository.instance.requestUserDetail(id: id, request: request)
     }
 }
 

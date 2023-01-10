@@ -7,11 +7,33 @@
 
 import Foundation
 
-struct DepartmentNode: Hashable {
-    var parent: Int?
-    var code: Int
-    var name: String
-    var child: [DepartmentNode]
-    var users: [SimpleUser]
+struct DepartmentNode: Hashable, Codable {
+    var parent: Int = 0
+    var code: Int = 0
+    var name: String = ""
+    var child: [DepartmentNode] = []
+    var users: [SimpleUser] = []
     var isExpanded: Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case parent = "parent"
+        case code = "code"
+        case name = "name"
+        case child = "child"
+        case users = "users"
+        case isExpanded = "isExpanded"
+    }
+}
+
+extension DepartmentNode {
+    func getCount() -> Int {
+        var count = 0
+        
+        count += self.users.count
+        child.forEach { node in
+            count += node.getCount()
+        }
+        
+        return count
+    }
 }

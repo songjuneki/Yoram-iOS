@@ -61,5 +61,12 @@ final class UserRepository {
             .mapError { APIError.init(moyaError: $0) }
             .eraseToAnyPublisher()
     }
+    
+    func requestUserDetail(id: Int, request: Int) -> AnyPublisher<UserDetail, APIError> {
+        return provider.requestPublisher(.GetUserDetail(id, request))
+            .map(UserDetail.self)
+            .mapError { APIError.init(moyaError: $0) }
+            .eraseToAnyPublisher()
+    }
 
 }

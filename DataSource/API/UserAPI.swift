@@ -17,6 +17,8 @@ enum UserAPI {
     case GetUserListByName(Int)
     case GetUserListByDepartment(Int, Int)
     case GetUserListByPosition(Int, Int)
+    
+    case GetUserDetail(Int, Int)
 }
 
 extension UserAPI: TargetType {
@@ -32,16 +34,16 @@ extension UserAPI: TargetType {
         case .GetUserListByName: return "/name/all"
         case .GetUserListByDepartment: return "/dpt"
         case .GetUserListByPosition: return "/pos/sp"
+            
+        case .GetUserDetail: return "/detail"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .Get: return .get
         case .SignUp: return .post
         case .Login: return .post
-        case .MyLoginData: return .get
-        case .GetUserListByName, .GetUserListByDepartment, .GetUserListByPosition: return .get
+        default: return .get
         }
     }
     
@@ -63,6 +65,9 @@ extension UserAPI: TargetType {
             return .requestParameters(parameters: ["dpt": dpt, "request": request], encoding: URLEncoding.queryString)
         case .GetUserListByPosition(let pos, let request):
             return .requestParameters(parameters: ["pos": pos, "request": request], encoding: URLEncoding.queryString)
+            
+        case .GetUserDetail(let id, let request):
+            return .requestParameters(parameters: ["id": id, "request": request], encoding: URLEncoding.queryString)
         }
     }
     

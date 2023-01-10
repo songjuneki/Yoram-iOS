@@ -9,11 +9,12 @@ import SwiftUI
 import Kingfisher
 
 struct UserCell: View {
-    private var user: SimpleUser
+    @State var user: SimpleUser
+    @StateObject var viewModel: DepartmentViewModel
     
     var body: some View {
         HStack(alignment: .center) {
-            KFImage(URL(string: user.avatar))
+            KFImage(URL(string: Const.URL.BASE + Const.URL.USER + "/avatar/?id=\(user.id)"))
                 .placeholder({ progress in
                     Circle()
                         .fill(.gray)
@@ -37,21 +38,10 @@ struct UserCell: View {
             Spacer()
         }
         .frame(maxWidth: .infinity)
+        .background(.white)
         .padding(.vertical, 5)
-    }
-}
-
-extension UserCell {
-    init(_ user: SimpleUser) {
-        self.user = user
-        if user.avatar.isEmpty {
-            self.user.avatar = Const.URL.BASE + Const.URL.USER + "/avatar?id=-1"
+        .onTapGesture {
+            self.viewModel.getUserDetail(self.user.id)
         }
-    }
-}
-
-struct UserCell_Previews: PreviewProvider {
-    static var previews: some View {
-        UserCell(SimpleUser(id: -1, name: "송준기", sex: true, position: 1050, positionName: "집사", department: 100000, departmentName: "제1남전도회", avatar: "http://3.39.51.49:8080/api/user/avatar?id=98"))
     }
 }

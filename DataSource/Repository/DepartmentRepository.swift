@@ -8,30 +8,25 @@
 import Foundation
 import Moya
 import Combine
+import CombineMoya
 
 
 final class DepartmentRepository {
     static let instance = DepartmentRepository()
     private let provider = MoyaProvider<DepartmentAPI>()
     
-    func requestTopDepartmentList() -> AnyPublisher<[Department], APIError> {
-        provider.requestPublisher(.GetTopDepartments)
-            .map([Department].self)
+    func getAllDepartmentNode(_ request: Int) -> AnyPublisher<[DepartmentNode], APIError> {
+        return provider.requestPublisher(.GetAllDepartments(request))
+            .map([DepartmentNode].self)
             .mapError { APIError.init(moyaError: $0) }
             .eraseToAnyPublisher()
     }
     
-    func requestChildDepartmentList(_ parent: Int) -> AnyPublisher<[Department], APIError> {
-        provider.requestPublisher(.GetChildDepartments(parent))
-            .map([Department].self)
+    func getAllDepartmentNodeByPosition(_ request: Int) -> AnyPublisher<[DepartmentNode], APIError> {
+        return provider.requestPublisher(.GetAllDepartmentNodeByPosition(request))
+            .map([DepartmentNode].self)
             .mapError { APIError.init(moyaError: $0) }
             .eraseToAnyPublisher()
     }
     
-    func requestAllDepartmentList() -> AnyPublisher<[Department], APIError> {
-        provider.requestPublisher(.GetAllDepartments)
-            .map([Department].self)
-            .mapError { APIError.init(moyaError: $0) }
-            .eraseToAnyPublisher()
-    }
 }

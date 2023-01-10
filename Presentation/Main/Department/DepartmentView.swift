@@ -14,19 +14,22 @@ struct DepartmentView: View {
     
     @State private var showDropDown = false
     
+    @State private var headerFrame: CGRect = CGRect()
+    @State private var headerSafeInset: EdgeInsets = EdgeInsets()
+    
+    @State private var subExpanded: Bool = false
+    
     var body: some View {
         ZStack {
-            GeometryReader { p in
+            VStack {
                 VStack {
                     HStack {
                         HStack(alignment: .center, spacing: 20) {
-                            Text(getSortTypeName(type:viewModel.currentSortType))
+                            Text(getSortTypeName(type:self.viewModel.currentSortType))
                                 .font(.custom("Pretendard-SemiBold", size: 20))
-                                .coordinateSpace(name: "currentSort")
+                            
                             Image(systemName: "chevron.down")
-                                .coordinateSpace(name: "arrow")
                         }
-                        .frame(alignment: .trailing)
                         .onTapGesture {
                             withAnimation {
                                 self.showDropDown.toggle()
@@ -41,86 +44,56 @@ struct DepartmentView: View {
                             .renderingMode(.template)
                             .foregroundColor(Color("TextTitleColor"))
                     }
-                    .padding(.horizontal)
-                    .padding(.top)
-                    .onTapGesture {
-                        withAnimation {
-                            self.showDropDown = false
-                        }
-                    }
-                    
                     Rectangle()
                         .fill(Color("DividerColor"))
                         .frame(maxHeight: 10)
-                        .padding(.top)
-                    
-                    ScrollView {
-                        switch viewModel.loadingState {
-                        case .loading:
-                            self.placeholder
-                        case .loaded:
-                            self.departmentView
-                        case .empty:
-                            self.departmentEmptyView
-                        case .error:
-                            self.departmentEmptyView
-                        }
-                        
-                    }
+                        .padding(.horizontal, -50)
                 }
+                .frameGetter(self.$headerFrame, self.$headerSafeInset)
                 
                 if self.showDropDown {
-                    VStack {
-                        Text("이름 순")
-                            .font(.custom("Pretendard-SemiBold", size: 18))
-                            .foregroundColor(viewModel.currentSortType == .Name ? Color("TextTitleColor") : Color("DisableColor"))
-                            .padding(.vertical, 5)
-                            .onTapGesture {
-                                withAnimation {
-                                    viewModel.currentSortType = .Name
-                                    self.showDropDown.toggle()
-                                    viewModel.loadUserList(mainViewModel.loginID)
-                                }
-                            }
-                        Text("부서 별")
-                            .font(.custom("Pretendard-SemiBold", size: 18))
-                            .foregroundColor(viewModel.currentSortType == .Department ? Color("TextTitleColor") : Color("DisableColor"))
-                            .padding(.vertical, 5)
-                            .onTapGesture {
-                                withAnimation {
-                                    viewModel.currentSortType = .Department
-                                    self.showDropDown.toggle()
-                                    viewModel.loadUserList(mainViewModel.loginID)
-                                }
-                            }
-                        Text("직분 별")
-                            .font(.custom("Pretendard-SemiBold", size: 18))
-                            .foregroundColor(viewModel.currentSortType == .Position ? Color("TextTitleColor") : Color("DisableColor"))
-                            .padding(.vertical, 5)
-                            .onTapGesture {
-                                withAnimation {
-                                    viewModel.currentSortType = .Position
-                                    self.showDropDown.toggle()
-                                    viewModel.loadUserList(mainViewModel.loginID)
-                                }
-                            }
-                    }
-                    .transition(.opacity.combined(with: .scale).animation(.easeIn))
-                    .padding(.all, 10)
-                    .background {
-                        RoundedRectangle(cornerRadius: 5)
-                            .fill(.white)
-                            .shadow(radius: 5)
+                    HStack {
+                        DepartmentSortDropDownMenuView(mainViewModel: self.mainViewModel, viewModel: self.viewModel, showDropDown: self.$showDropDown)
+                        Spacer()
                     }
                     .zIndex(2)
-                    .offset(x: 10, y: 45)
+                    .offset(y: -30)
                 }
             }
+            .frame(maxHeight: .infinity, alignment:.topLeading)
+            .padding(.horizontal)
+            .zIndex(1)
+            
+            ScrollView {
+                switch viewModel.loadingState {
+                case .loading: self.placeholder
+                case .loaded:
+                    LazyVStack {
+                        ForEach(self.viewModel.departmentNodeList, id: \.self) {
+                            NodeView(node: $0, viewModel: self.viewModel)
+                        }
+                        Image("LogoWhite")
+                            .renderingMode(.template)
+                            .colorMultiply(.gray.opacity(0.1))
+                            .scaleEffect(0.5)
+                            .padding(.vertical)
+                    }
+                    .padding(.bottom, 100)
+                case .empty: self.departmentEmptyView
+                case .error: self.departmentEmptyView
+                }
+            }
+            .frame(alignment: .center)
+            .offset(y: self.headerFrame.height)
+            .padding(.top)
         }
         .onTapGesture {
             withAnimation {
                 self.showDropDown = false
             }
+        }
+        .sheet(isPresented: self.$viewModel.isShowUserInfo) {
+            UserInfoView(viewModel: self.viewModel)
         }
     }
     
@@ -153,10 +126,10 @@ struct DepartmentView: View {
                         .frame(maxWidth: 80, maxHeight: 80)
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("송준기")
-                            Text("성도")
+                            Text("성이름")
+                            Text("직책")
                         }
-                        Text("청년부")
+                        Text("부서부서")
                     }
                     Spacer()
                 }
@@ -166,39 +139,6 @@ struct DepartmentView: View {
         }
         .redacted(reason: .placeholder)
         .shimmering()
-    }
-    
-    private var departmentView: some View {
-        LazyVStack {
-            ForEach(Array(self.viewModel.departmentNodeList.enumerated()), id: \.0) { index, node in
-                HStack(alignment: .center) {
-                    Text("\(node.name)     \(node.users.count)")
-                        .font(.custom("Pretendard-Medium", size: 14))
-                    Rectangle()
-                        .fill(.white.opacity(1.0))
-
-                    Image(systemName: "chevron.up")
-                        .imageScale(.small)
-                        .foregroundColor(Color("DisableColor"))
-                        .rotationEffect(Angle(degrees: node.isExpanded ? 360 : 180))
-                }
-                .padding(.horizontal)
-                .onTapGesture {
-                    withAnimation {
-                        self.viewModel.departmentNodeList[index].isExpanded.toggle()
-                    }
-                }
-
-                if node.isExpanded {
-                    ForEach(node.users, id: \.id) { user in
-                        UserCell(user)
-                            .padding(.horizontal)
-                            .transition(.asymmetric(insertion: .opacity.combined(with: .push(from: .top)).animation(.easeIn), removal: .opacity.combined(with: .push(from: .bottom)).animation(.easeOut)))
-                    }
-                }
-            }
-        }
-        .padding(.bottom, 100)
     }
     
     private var departmentEmptyView: some View {

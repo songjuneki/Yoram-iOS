@@ -9,9 +9,8 @@ import Foundation
 import Moya
 
 enum DepartmentAPI {
-    case GetTopDepartments
-    case GetChildDepartments(Int)
-    case GetAllDepartments
+    case GetAllDepartments(Int)
+    case GetAllDepartmentNodeByPosition(Int)
 }
 
 extension DepartmentAPI: TargetType {
@@ -19,9 +18,8 @@ extension DepartmentAPI: TargetType {
     
     var path: String {
         switch self {
-        case .GetTopDepartments: return "/tops"
-        case .GetChildDepartments: return "/has"
-        case .GetAllDepartments: return "/all"
+        case .GetAllDepartments: return "/v2/all"
+        case .GetAllDepartmentNodeByPosition: return "/v2/pos"
         }
     }
     
@@ -34,10 +32,10 @@ extension DepartmentAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .GetTopDepartments, .GetAllDepartments:
-            return .requestPlain
-        case .GetChildDepartments(let parent):
-            return .requestParameters(parameters: ["parent": parent], encoding: URLEncoding.queryString)
+        case .GetAllDepartments(let request):
+            return .requestParameters(parameters: ["request": request], encoding: URLEncoding.queryString)
+        case .GetAllDepartmentNodeByPosition(let request):
+            return .requestParameters(parameters: ["request": request], encoding: URLEncoding.queryString)
         }
     }
     

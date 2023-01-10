@@ -10,12 +10,17 @@ import SwiftUI
 import Combine
 
 class DepartmentViewModel: ObservableObject {
+    @AppStorage("loginID") var loginID: Int = -1
+    
     @Published var isSearching: Bool = false
     @Published var departmentNodeList: [DepartmentNode] = []
     
     @Published var currentSortType: DepartmentSortType = .Name
     @Published var loadingState: NetworkLoadingState = .loading
     
+    @Published var isShowUserInfo: Bool = false
+    @Published var userInfoLoadingState: NetworkLoadingState = .loading
+    @Published var userDetail: UserDetail = UserDetail()
     
     private let useCase = DepartmentUseCase()
     
@@ -23,6 +28,7 @@ class DepartmentViewModel: ObservableObject {
     
     func loadUserList(_ request: Int) {
         self.loadingState = .loading
+        self.departmentNodeList.removeAll()
         
         switch self.currentSortType {
         case .Name:
@@ -30,7 +36,7 @@ class DepartmentViewModel: ObservableObject {
         case .Department:
             loadUserListByDepartment(request)
         case .Position:
-            loadUserListByName(request)
+            loadUserListByPosition(request)
         }
     }
     
@@ -72,83 +78,64 @@ class DepartmentViewModel: ObservableObject {
     }
     
     private func loadUserListByDepartment(_ request: Int) {
-        useCase.getTopDepartmentList()
+        useCase.getAllDepartmentNodeList(request)
             .sink { completion in
                 switch completion {
-                case .failure(let err):
-                    print("DepartmentViewModel::loadUserListByDepartment failure - \(err.message)")
+                case .finished: break
+                case .failure(_):
                     self.loadingState = .error
                     return
-                case .finished:
-                    self.departmentNodeList = []
                 }
-            } receiveValue: { topList in
-                if topList.isEmpty {
-                    self.loadingState = .empty
-                    return
-                }
-                topList.forEach { top in
-                    var childs: [DepartmentNode] = []
-                    var users: [SimpleUser] = []
-                    self.getSimpleUserListFromDepartment(department: top.code, request: request) { userResult in
-                        users = userResult
-                        self.getChildDepartmentList(parent: top.code, request: request) { childResult in
-                            childs = childResult
-                            self.departmentNodeList.append(DepartmentNode(code: top.code, name: top.name, child: childs, users: users, isExpanded: true))
-                        }
-                    }
-                }
+            } receiveValue: { result in
+                self.departmentNodeList = result
                 self.loadingState = .loaded
+                if result.isEmpty {
+                    self.loadingState = .empty
+                }
             }
             .store(in: &subscription)
-
     }
     
-    private func getChildDepartmentList(parent: Int, request: Int, result: @escaping ([DepartmentNode]) -> ()) {
-        useCase.getChildDepartmentList(parent)
+    private func loadUserListByPosition(_ request: Int) {
+        useCase.getAllPositionNodeList(request)
             .sink { completion in
                 switch completion {
-                case .finished:
-                    break
+                case .finished: break
                 case .failure(_):
-                    result([])
+                    self.loadingState = .error
                     return
                 }
-            } receiveValue: { dptList in
-                var list: [DepartmentNode] = []
-                dptList.forEach { dpt in
-                    var child: [DepartmentNode] = []
-                    var users: [SimpleUser] = []
-                    self.getChildDepartmentList(parent: dpt.code, request: request) { subResult in
-                        child = subResult
-                        self.getSimpleUserListFromDepartment(department: dpt.code, request: request) { userResult in
-                            users = userResult
-                            list.append(DepartmentNode(code: dpt.code, name: dpt.name, child: child, users: users, isExpanded: true))
-                        }
-                    }
+            } receiveValue: { result in
+                self.departmentNodeList = result
+                self.loadingState = .loaded
+                if result.isEmpty {
+                    self.loadingState = .empty
                 }
-                result(list)
             }
             .store(in: &subscription)
-
     }
     
-    private func getSimpleUserListFromDepartment(department: Int, request: Int, result: @escaping ([SimpleUser]) -> ()) {
-        useCase.getUserListFromDepartment(department: department, request: request)
+    func getUserDetail(_ id: Int) {
+        self.userInfoLoadingState = .loading
+        self.isShowUserInfo.toggle()
+        
+        useCase.getUserDetail(id, self.loginID)
             .sink { completion in
                 switch completion {
-                case .finished:
-                    break
-                case .failure(_):
-                    result([])
+                case .finished: break
+                case .failure(let err):
+                    self.userInfoLoadingState = .error
+                    print("getUserDetail :: failure : \(err.message)")
                     return
                 }
-            } receiveValue: { users in
-                result(users)
+            } receiveValue: { result in
+                print("getUserDetail :: success : \(result)")
+                self.userDetail = result
+                self.userInfoLoadingState = .loaded
             }
             .store(in: &subscription)
     }
-
+    
     
     init() {
         loadUserList(-1)
