@@ -15,6 +15,7 @@
 		5A33FA8B2966EDE700CA4F72 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A33FA8A2966EDE700CA4F72 /* UserDetailView.swift */; };
 		5A36673328D8B066004198DB /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36673228D8B066004198DB /* ViewExtension.swift */; };
 		5A3CA818291F8ABF0026DE2E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3CA817291F8ABF0026DE2E /* User.swift */; };
+		5A449189296DC003000DA8A6 /* FancyScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 5A449188296DC003000DA8A6 /* FancyScrollView */; };
 		5A516AE928D2BFAC007B2B2C /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AE828D2BFAC007B2B2C /* NavigationExtension.swift */; };
 		5A516AEC28D2F733007B2B2C /* ToggleSexButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AEB28D2F733007B2B2C /* ToggleSexButton.swift */; };
 		5A516AEE28D2FDA2007B2B2C /* ViewCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A516AED28D2FDA2007B2B2C /* ViewCornerExtension.swift */; };
@@ -183,6 +184,7 @@
 				F795196C6225092679F5A9A5 /* Pods_Yoram.framework in Frameworks */,
 				5A72B8DB291156CC00206EBC /* CombineMoya in Frameworks */,
 				5A962CC6292F47F60038AE9F /* SwiftUIPager in Frameworks */,
+				5A449189296DC003000DA8A6 /* FancyScrollView in Frameworks */,
 				5A962CC9292F4B460038AE9F /* Kingfisher in Frameworks */,
 				5A72B8DD291156CC00206EBC /* Moya in Frameworks */,
 				5A72B8BC290FD37000206EBC /* FloatingLabelTextFieldSwiftUI in Frameworks */,
@@ -506,6 +508,7 @@
 				5A962CD1292F525A0038AE9F /* ActivityIndicatorView */,
 				5A962CD42930A02B0038AE9F /* PageView */,
 				5AB28F33293F396A00EA903E /* Shimmer */,
+				5A449188296DC003000DA8A6 /* FancyScrollView */,
 			);
 			productName = Yoram;
 			productReference = 5A873DCF28CC842000ADD147 /* Yoram.app */;
@@ -545,6 +548,7 @@
 				5A962CD0292F525A0038AE9F /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 				5A962CD32930A02A0038AE9F /* XCRemoteSwiftPackageReference "PageView" */,
 				5AB28F32293F396A00EA903E /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+				5A449187296DC003000DA8A6 /* XCRemoteSwiftPackageReference "FancyScrollView" */,
 			);
 			productRefGroup = 5A873DD028CC842000ADD147 /* Products */;
 			projectDirPath = "";
@@ -892,6 +896,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5A449187296DC003000DA8A6 /* XCRemoteSwiftPackageReference "FancyScrollView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nerdsupremacist/FancyScrollView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 		5A72B8BA290FD37000206EBC /* XCRemoteSwiftPackageReference "FloatingLabelTextFieldSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishanraja/FloatingLabelTextFieldSwiftUI";
@@ -967,6 +979,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5A449188296DC003000DA8A6 /* FancyScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A449187296DC003000DA8A6 /* XCRemoteSwiftPackageReference "FancyScrollView" */;
+			productName = FancyScrollView;
+		};
 		5A72B8BB290FD37000206EBC /* FloatingLabelTextFieldSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5A72B8BA290FD37000206EBC /* XCRemoteSwiftPackageReference "FloatingLabelTextFieldSwiftUI" */;

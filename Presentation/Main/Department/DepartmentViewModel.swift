@@ -40,6 +40,17 @@ class DepartmentViewModel: ObservableObject {
         }
     }
     
+    func openCallDial(phone: String) {
+        guard let url = URL(string:"tel:\(phone)") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    func openSMS(phone: String) {
+        guard let url = URL(string: "sms:\(phone)") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    
     private func loadUserListByName(_ request: Int) {
         useCase.getSimpleUserListByName(request)
             .sink { completion in
