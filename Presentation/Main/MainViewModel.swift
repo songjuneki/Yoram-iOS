@@ -16,7 +16,7 @@ class MainViewModel: ObservableObject {
     
     @Published var currentTab: Int
     @Published var loginData: MyLoginData
-    private let annonymous = MyLoginData(id: -1, avatar: "", name: "익명", sex: true, department: 0, departmentName: "성도", departmentParent: 0, departmentParentName: "성도", position: 1050, positionName: "성도", permission: 0, attendCnt: 0)
+    private let anonymous = MyLoginData()
     
     @Published var myTotalGive: String = "10,000원"
     @Published var maxWeek: Int = 5
@@ -26,14 +26,14 @@ class MainViewModel: ObservableObject {
     
     init() {
         self.currentTab = 0
-        self.loginData = self.annonymous
+        self.loginData = self.anonymous
         getMyLoginData()
         getMaxWeek()
     }
     
     func getMyLoginData() {
         if loginID < 0 {
-            self.loginData = annonymous
+            self.loginData = anonymous
             return
         }
         
@@ -49,7 +49,7 @@ class MainViewModel: ObservableObject {
             self.currentTab = 0
             self.loginID = -1
             self.isInit = false
-            self.loginData = annonymous
+            self.loginData = anonymous
         }
     }
     

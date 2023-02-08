@@ -9,11 +9,13 @@ import Foundation
 
 extension Const {
     struct URL {
-        static let BASE = "http://3.39.51.49:8080/api"
+        static let BASE = "http://hyuny840501.cafe24.com:8080/api"
         
         static let USER = "/user"
         static let DEPARTMENT = "/dpt"
         static let POSITION = "/pos"
         static let GIVE = "/give"
+        
+        static let EMPTY_AVATAR = BASE + USER + "/avatar?id=-1"
     }
 }

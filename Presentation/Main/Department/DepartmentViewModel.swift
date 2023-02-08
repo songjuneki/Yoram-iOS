@@ -136,11 +136,9 @@ class DepartmentViewModel: ObservableObject {
                 case .finished: break
                 case .failure(let err):
                     self.userInfoLoadingState = .error
-                    print("getUserDetail :: failure : \(err.message)")
                     return
                 }
             } receiveValue: { result in
-                print("getUserDetail :: success : \(result)")
                 self.userDetail = result
                 self.userInfoLoadingState = .loaded
             }

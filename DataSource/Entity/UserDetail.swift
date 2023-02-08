@@ -65,4 +65,8 @@ extension UserDetail {
         self.appAgreeDate = ""
         self.privacyAgreeDate = ""
     }
+    
+    func getAvatarURL() -> String {
+        return "\(Const.URL.BASE)\(Const.URL.USER)/avatar?id=\(self.id)"
+    }
 }

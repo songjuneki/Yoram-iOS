@@ -23,7 +23,7 @@ struct UserInfoView: View {
                     Rectangle()
                         .fill(self.imageAverageColor)
                         .overlay {
-                            KFImage(URL(string: self.viewModel.userDetail.avatar))
+                            KFImage(URL(string: self.viewModel.userDetail.getAvatarURL()))
                                 .placeholder { progress in
                                     ActivityIndicatorView(isVisible: .constant(!progress.isFinished), type: .equalizer(count: 3))
                                         .foregroundColor(.accentColor.opacity(0.8))
@@ -37,6 +37,8 @@ struct UserInfoView: View {
                         }
                         .overlay(alignment: .topTrailing, content: {
                             Image("CloseWhite")
+                                .renderingMode(.template)
+                                .foregroundColor(self.imageAverageColor.isBrightness() ? .black : .white)
                                 .padding(.all)
                                 .onTapGesture {
                                     self.viewModel.isShowUserInfo.toggle()
@@ -53,6 +55,9 @@ struct UserInfoView: View {
                 
             }
             .coordinateSpace(name: "scroll")
+            .onAppear {
+                self.imageAverageColor = .clear
+            }
         }
     }
 

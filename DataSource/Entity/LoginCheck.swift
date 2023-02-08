@@ -9,7 +9,6 @@ import Foundation
 
 struct LoginCheck: Codable {
     var id: Int
-    var name: String
     var pw: String
     var bd: String
     var time = Date()

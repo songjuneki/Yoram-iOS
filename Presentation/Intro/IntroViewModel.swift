@@ -151,7 +151,7 @@ class IntroViewModel: ObservableObject {
                 return
             }
         } receiveValue: { userId in
-            let loginCheck = LoginCheck(id: userId, name: self.newName, pw: self.newPwv.toSHA256(), bd: self.newBd)
+            let loginCheck = LoginCheck(id: userId, pw: self.newPwv.toSHA256(), bd: self.newBd)
             self.useCase.login(loginCheck)
                 .sink { completion in
                     switch completion {
@@ -210,7 +210,7 @@ class IntroViewModel: ObservableObject {
                 return
             }
             
-            let loginCheck = LoginCheck(id: result.first!.id, name: self.loginName, pw: self.loginPw.toSHA256(), bd: self.loginBd)
+            let loginCheck = LoginCheck(id: result.first!.id, pw: self.loginPw.toSHA256(), bd: self.loginBd)
             
             self.useCase.login(loginCheck)
                 .sink { completion in
