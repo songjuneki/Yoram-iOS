@@ -11,28 +11,10 @@ struct Main: View {
     @StateObject private var viewModel: MainViewModel = MainViewModel()
     @StateObject private var homeViewModel: HomeViewModel = HomeViewModel()
     @StateObject private var dptViewModel: DepartmentViewModel = DepartmentViewModel()
+    @StateObject private var idViewModel: IDViewModel = IDViewModel()
     
     var body: some View {
         GeometryReader { r in
-            //            VStack(alignment: .center, spacing: 0) {
-            //                ZStack(alignment: .bottom) {
-            //                    TabView(selection: self.$viewModel.currentTab) {
-            //                        Home(homeViewModel: self.homeViewModel, mainViewModel: self.viewModel).tag(0)
-            //                        Department().tag(1)
-            //                        ID().tag(2)
-            //                        Board().tag(3)
-            //                        My(mainViewModel: self.viewModel).tag(4)
-            //                    }.tabViewStyle(.automatic)
-            //                        .edgesIgnoringSafeArea(.all)
-            //
-            //                    TabBarView(currentTab: self.$viewModel.currentTab)
-            //                }
-            //            }
-            //            .edgesIgnoringSafeArea(.vertical)
-            //            .onAppear {
-            //                self.viewModel.getMyLoginData()
-            //            }
-            
             ZStack {
                 getTabView(currentTab: self.viewModel.currentTab)
                     .transition(.opacity.animation(.easeInOut))
@@ -53,7 +35,7 @@ struct Main: View {
         case 1:
             DepartmentView(viewModel: self.dptViewModel, mainViewModel: self.viewModel)
         case 2:
-            ID()
+            IDView(viewModel: self.idViewModel, mainViewModel: self.viewModel)
         case 3:
             Board()
         case 4:

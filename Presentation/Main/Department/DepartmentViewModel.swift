@@ -134,7 +134,7 @@ class DepartmentViewModel: ObservableObject {
             .sink { completion in
                 switch completion {
                 case .finished: break
-                case .failure(let err):
+                case .failure(_):
                     self.userInfoLoadingState = .error
                     return
                 }

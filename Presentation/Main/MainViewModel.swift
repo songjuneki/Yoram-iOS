@@ -60,4 +60,17 @@ class MainViewModel: ObservableObject {
                 self.maxWeek = result
             }.store(in: &subscription)
     }
+    
+    func getPermission() -> UserPermission {
+        switch self.loginData.permission {
+        case 0: return .NONE
+        case 1: return .NORMAL
+        case 2: return .FINANCE
+        case 3: return .PERSONNEL
+        case 4: return .FINANCE_PERSONNEL
+        case 5: return .ADMIN
+        case 6: return .SUPER_ADMIN
+        default: return .NONE
+        }
+    }
 }
